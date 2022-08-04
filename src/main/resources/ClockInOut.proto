@@ -1,0 +1,49 @@
+syntax = "proto3";
+package clockInOutService;
+
+// Defining the service containing methods
+service AuthServiceRoutes {
+  //Unary RPC  -
+  rpc ClockIn(ClockinRequest) returns (ClockinResponse) {}
+
+  rpc ClockOut(ClockoutRequest) returns (ClockoutResponse) {}
+}
+
+// Define data types here
+message AccountCredentials {
+  string username = 1;
+  string password = 2;
+}
+message OauthCredentials {
+  string token = 3;
+  uint32 timeoutSeconds = 4;
+}
+
+message ClockinRequest {
+  string employeeId = 1;
+}
+
+message ClockinResponse {
+  string employeeId = 1;
+  string date = 2;
+  string timein = 3;
+}
+
+message ClockoutRequest {
+  string employeeId = 1;
+  string break = 2;
+  string finishedShift = 3;
+}
+
+message ClockoutResponse {
+  string employeeId = 1;
+  string date = 2;
+  string timeout = 3;
+}
+
+message Clock {
+  string employeeId = 1;
+  string date = 2;
+  string timein = 3;
+  string timeout = 4;
+}
