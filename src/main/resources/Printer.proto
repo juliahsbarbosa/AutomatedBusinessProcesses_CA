@@ -15,6 +15,7 @@ service Printer {
 	rpc PrintsAllDocuments(stream Document) returns (stream Document){}
 }
 
+// Defining the data types
 message Document {
 	string documentName = 1;
 	int32 copies = 2;

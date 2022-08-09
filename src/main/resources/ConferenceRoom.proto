@@ -4,49 +4,49 @@ option java_multiple_files = true;
 option java_package = "grpc.conferenceRoom";
 option java_outer_classname = "ConferenceRoomService";
 
-service ConferenceRoom{
+// Defining the service containing methods
+service ConferenceRoom {
 
-	//Server stream rpc
-	//Client requests available conference rooms, server returns a stream of available rooms
-	rpc GetAvailableRooms(GetAvailableRoomsRequest) returns (stream GetAvailableRoomsResponse){}
+//Server stream rpc
+//Client requests available conference rooms, server returns a stream of available rooms
+	rpc GetAvailableRooms (GetAvailableRoomsRequest) returns (stream GetAvailableRoomsResponse) {}
 
 	//Unary rpc
 	//Client books a conference room, server returns confirmation message
-	rpc BookConferenceRoom(BookConferenceRoomRequest) returns (BookConferenceRoomResponse){}
+	rpc BookConferenceRoom (BookConferenceRoomRequest) returns (BookConferenceRoomResponse) {}
 
 	//Client streaming
 	//Sensor sends conference room occupancy data, server returns empty
-	rpc SendOccupancyData (stream OccupancyDataRequest) returns (Empty){}
-
+	rpc SendOccupancyData (stream OccupancyDataRequest) returns (Empty) {}
 }
 
-	message GetAvailableRoomsRequest{
-		string date = 1;
-		string time = 2;
-		string officeName = 3;
-	}
+// Defining the data types
+message GetAvailableRoomsRequest {
+	string date = 1;
+	string time = 2;
+	string officeName = 3;
+}
 
-	message GetAvailableRoomsResponse{
-		string date = 1;
-		string conferanceRoomId = 2;
-		string timeslotsAvailable = 3;
-	}
+message GetAvailableRoomsResponse {
+	string date = 1;
+	string conferanceRoomId = 2;
+	string timeslotsAvailable = 3;
+}
 
-	message BookConferenceRoomRequest{
-		string date =1;
-		string timeslot =2;
-		int32 numParticipants = 3;
-		string conferanceRoomId = 4;
-	}
+message BookConferenceRoomRequest {
+	string date = 1;
+	string timeslot = 2;
+	int32 numParticipants = 3;
+	string conferanceRoomId = 4;
+}
 
-	message BookConferenceRoomResponse{
-		string message = 1;
-	}
+message BookConferenceRoomResponse {
+	string message = 1;
+}
 
-	message OccupancyDataRequest{
-		int32 numOccupancy = 1;
-	}
+message OccupancyDataRequest {
+	int32 numOccupancy = 1;
+}
 
-	message Empty{
-
-	}
+message Empty {
+}

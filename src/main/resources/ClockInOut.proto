@@ -8,13 +8,11 @@ option java_outer_classname = "ClockInClockOutService";
 service Clockin {
 	//Unary RPC
 	//The client requests clock in, the server returns clockin response
-	rpc ClockIn (ClockinRequest) returns (ClockinResponse) {
-	}
+	rpc ClockIn (ClockinRequest) returns (ClockinResponse) {}
 
 	//Unary RPC
 	//The client requests clockout, the server returns clockout response
-	rpc ClockOut (ClockoutRequest) returns (ClockoutResponse) {
-	}
+	rpc ClockOut (ClockoutRequest) returns (ClockoutResponse) {}
 }
 
 // Defining the data types
