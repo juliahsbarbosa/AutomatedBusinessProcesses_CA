@@ -2,15 +2,17 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "grpc.clockInOut";
-option java_outer_classname = "AutomatedClockInClockOut";
+option java_outer_classname = "ClockInClockOutService";
 
 // Defining the service containing the rpc methods
-service AuthServiceRoutes {
+service Clockin {
 	//Unary RPC
+	//The client requests clock in, the server returns clockin response
 	rpc ClockIn (ClockinRequest) returns (ClockinResponse) {
 	}
 
 	//Unary RPC
+	//The client requests clockout, the server returns clockout response
 	rpc ClockOut (ClockoutRequest) returns (ClockoutResponse) {
 	}
 }
@@ -36,11 +38,4 @@ message ClockoutResponse {
 	string employeeId = 1;
 	string date = 2;
 	string timeout = 3;
-}
-
-message Clock {
-	string employeeId = 1;
-	string date = 2;
-	string timein = 3;
-	string timeout = 4;
 }
