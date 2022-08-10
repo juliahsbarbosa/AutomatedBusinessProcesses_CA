@@ -40,10 +40,10 @@ public final class ConferenceRoomService {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_OccupancyDataRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Empty_descriptor;
+    internal_static_OccupancyDataResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Empty_fieldAccessorTable;
+      internal_static_OccupancyDataResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -53,23 +53,24 @@ public final class ConferenceRoomService {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024ConferenceRoom.proto\"6\n\030GetAvailableRo" +
-      "omsRequest\022\014\n\004date\030\001 \001(\t\022\014\n\004time\030\002 \001(\t\"Q" +
-      "\n\031GetAvailableRoomsResponse\022\030\n\020conferanc" +
-      "eRoomId\030\002 \001(\t\022\032\n\022timeslotsAvailable\030\003 \001(" +
-      "\t\"n\n\031BookConferenceRoomRequest\022\014\n\004date\030\001" +
-      " \001(\t\022\020\n\010timeslot\030\002 \001(\t\022\027\n\017numParticipant" +
-      "s\030\003 \001(\005\022\030\n\020conferenceRoomId\030\004 \001(\005\"-\n\032Boo" +
-      "kConferenceRoomResponse\022\017\n\007message\030\001 \001(\t" +
-      "\",\n\024OccupancyDataRequest\022\024\n\014numOccupancy" +
-      "\030\001 \001(\005\"\007\n\005Empty2\351\001\n\016ConferenceRoom\022N\n\021Ge" +
-      "tAvailableRooms\022\031.GetAvailableRoomsReque" +
-      "st\032\032.GetAvailableRoomsResponse\"\0000\001\022O\n\022Bo" +
-      "okConferenceRoom\022\032.BookConferenceRoomReq" +
-      "uest\032\033.BookConferenceRoomResponse\"\000\0226\n\021S" +
-      "endOccupancyData\022\025.OccupancyDataRequest\032" +
-      "\006.Empty\"\000(\001B.\n\023grpc.conferenceRoomB\025Conf" +
-      "erenceRoomServiceP\001b\006proto3"
+      "\n\024ConferenceRoom.proto\":\n\030GetAvailableRo" +
+      "omsRequest\022\014\n\004date\030\001 \001(\t\022\020\n\010timeslot\030\002 \001" +
+      "(\t\"5\n\031GetAvailableRoomsResponse\022\030\n\020confe" +
+      "renceRoomId\030\002 \001(\005\"n\n\031BookConferenceRoomR" +
+      "equest\022\014\n\004date\030\001 \001(\t\022\020\n\010timeslot\030\002 \001(\t\022\027" +
+      "\n\017numParticipants\030\003 \001(\005\022\030\n\020conferenceRoo" +
+      "mId\030\004 \001(\005\"-\n\032BookConferenceRoomResponse\022" +
+      "\017\n\007message\030\001 \001(\t\",\n\024OccupancyDataRequest" +
+      "\022\024\n\014numOccupancy\030\001 \001(\005\"/\n\025OccupancyDataR" +
+      "esponse\022\026\n\016totalOccupancy\030\001 \001(\0052\371\001\n\016Conf" +
+      "erenceRoom\022N\n\021GetAvailableRooms\022\031.GetAva" +
+      "ilableRoomsRequest\032\032.GetAvailableRoomsRe" +
+      "sponse\"\0000\001\022O\n\022BookConferenceRoom\022\032.BookC" +
+      "onferenceRoomRequest\032\033.BookConferenceRoo" +
+      "mResponse\"\000\022F\n\021SendOccupancyData\022\025.Occup" +
+      "ancyDataRequest\032\026.OccupancyDataResponse\"" +
+      "\000(\001B.\n\023grpc.conferenceRoomB\025ConferenceRo" +
+      "omServiceP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -88,13 +89,13 @@ public final class ConferenceRoomService {
     internal_static_GetAvailableRoomsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetAvailableRoomsRequest_descriptor,
-        new java.lang.String[] { "Date", "Time", });
+        new java.lang.String[] { "Date", "Timeslot", });
     internal_static_GetAvailableRoomsResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_GetAvailableRoomsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetAvailableRoomsResponse_descriptor,
-        new java.lang.String[] { "ConferanceRoomId", "TimeslotsAvailable", });
+        new java.lang.String[] { "ConferenceRoomId", });
     internal_static_BookConferenceRoomRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_BookConferenceRoomRequest_fieldAccessorTable = new
@@ -113,12 +114,12 @@ public final class ConferenceRoomService {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_OccupancyDataRequest_descriptor,
         new java.lang.String[] { "NumOccupancy", });
-    internal_static_Empty_descriptor =
+    internal_static_OccupancyDataResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_Empty_fieldAccessorTable = new
+    internal_static_OccupancyDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Empty_descriptor,
-        new java.lang.String[] { });
+        internal_static_OccupancyDataResponse_descriptor,
+        new java.lang.String[] { "TotalOccupancy", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -95,21 +95,21 @@ public final class ConferenceRoomGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyDataRequest,
-      grpc.conferenceRoom.Empty> getSendOccupancyDataMethod;
+      grpc.conferenceRoom.OccupancyDataResponse> getSendOccupancyDataMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SendOccupancyData",
       requestType = grpc.conferenceRoom.OccupancyDataRequest.class,
-      responseType = grpc.conferenceRoom.Empty.class,
+      responseType = grpc.conferenceRoom.OccupancyDataResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
   public static io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyDataRequest,
-      grpc.conferenceRoom.Empty> getSendOccupancyDataMethod() {
-    io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyDataRequest, grpc.conferenceRoom.Empty> getSendOccupancyDataMethod;
+      grpc.conferenceRoom.OccupancyDataResponse> getSendOccupancyDataMethod() {
+    io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyDataRequest, grpc.conferenceRoom.OccupancyDataResponse> getSendOccupancyDataMethod;
     if ((getSendOccupancyDataMethod = ConferenceRoomGrpc.getSendOccupancyDataMethod) == null) {
       synchronized (ConferenceRoomGrpc.class) {
         if ((getSendOccupancyDataMethod = ConferenceRoomGrpc.getSendOccupancyDataMethod) == null) {
           ConferenceRoomGrpc.getSendOccupancyDataMethod = getSendOccupancyDataMethod = 
-              io.grpc.MethodDescriptor.<grpc.conferenceRoom.OccupancyDataRequest, grpc.conferenceRoom.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<grpc.conferenceRoom.OccupancyDataRequest, grpc.conferenceRoom.OccupancyDataResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "ConferenceRoom", "SendOccupancyData"))
@@ -117,7 +117,7 @@ public final class ConferenceRoomGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.conferenceRoom.OccupancyDataRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.conferenceRoom.Empty.getDefaultInstance()))
+                  grpc.conferenceRoom.OccupancyDataResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new ConferenceRoomMethodDescriptorSupplier("SendOccupancyData"))
                   .build();
           }
@@ -181,11 +181,11 @@ public final class ConferenceRoomGrpc {
     /**
      * <pre>
      *Client streaming
-     *Sensor sends conference room occupancy data, server returns empty
+     *Sensor keeps sending the occcupancy data, the server returns the total occupacy data
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataRequest> sendOccupancyData(
-        io.grpc.stub.StreamObserver<grpc.conferenceRoom.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataResponse> responseObserver) {
       return asyncUnimplementedStreamingCall(getSendOccupancyDataMethod(), responseObserver);
     }
 
@@ -210,7 +210,7 @@ public final class ConferenceRoomGrpc {
             asyncClientStreamingCall(
               new MethodHandlers<
                 grpc.conferenceRoom.OccupancyDataRequest,
-                grpc.conferenceRoom.Empty>(
+                grpc.conferenceRoom.OccupancyDataResponse>(
                   this, METHODID_SEND_OCCUPANCY_DATA)))
           .build();
     }
@@ -264,11 +264,11 @@ public final class ConferenceRoomGrpc {
     /**
      * <pre>
      *Client streaming
-     *Sensor sends conference room occupancy data, server returns empty
+     *Sensor keeps sending the occcupancy data, the server returns the total occupacy data
      * </pre>
      */
     public io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataRequest> sendOccupancyData(
-        io.grpc.stub.StreamObserver<grpc.conferenceRoom.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataResponse> responseObserver) {
       return asyncClientStreamingCall(
           getChannel().newCall(getSendOccupancyDataMethod(), getCallOptions()), responseObserver);
     }
@@ -394,7 +394,7 @@ public final class ConferenceRoomGrpc {
       switch (methodId) {
         case METHODID_SEND_OCCUPANCY_DATA:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.sendOccupancyData(
-              (io.grpc.stub.StreamObserver<grpc.conferenceRoom.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataResponse>) responseObserver);
         default:
           throw new AssertionError();
       }

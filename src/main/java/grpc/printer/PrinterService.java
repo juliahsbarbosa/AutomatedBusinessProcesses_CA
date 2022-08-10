@@ -24,16 +24,6 @@ public final class PrinterService {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PrintsAllDocumentsResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ScanFilesRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ScanFilesRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ScanFilesResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ScanFilesResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -46,14 +36,11 @@ public final class PrinterService {
       "\n\rPrinter.proto\"A\n\031PrintsAllDocumentsReq" +
       "uest\022\024\n\014documentName\030\001 \001(\t\022\016\n\006copies\030\002 \001" +
       "(\005\"B\n\032PrintsAllDocumentsResponse\022\024\n\014docu" +
-      "mentName\030\001 \001(\t\022\016\n\006copies\030\002 \001(\005\"(\n\020ScanFi" +
-      "lesRequest\022\024\n\014documentName\030\001 \001(\t\"$\n\021Scan" +
-      "FilesResponse\022\017\n\007message\030\001 \001(\t2\226\001\n\007Print" +
-      "er\0226\n\tScanFiles\022\021.ScanFilesRequest\032\022.Sca" +
-      "nFilesResponse\"\000(\001\022S\n\022PrintsAllDocuments" +
-      "\022\032.PrintsAllDocumentsRequest\032\033.PrintsAll" +
-      "DocumentsResponse\"\000(\0010\001B \n\014grpc.printerB" +
-      "\016PrinterServiceP\001b\006proto3"
+      "mentName\030\001 \001(\t\022\016\n\006copies\030\002 \001(\0052^\n\007Printe" +
+      "r\022S\n\022PrintsAllDocuments\022\032.PrintsAllDocum" +
+      "entsRequest\032\033.PrintsAllDocumentsResponse" +
+      "\"\000(\0010\001B \n\014grpc.printerB\016PrinterServiceP\001" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -79,18 +66,6 @@ public final class PrinterService {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrintsAllDocumentsResponse_descriptor,
         new java.lang.String[] { "DocumentName", "Copies", });
-    internal_static_ScanFilesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_ScanFilesRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ScanFilesRequest_descriptor,
-        new java.lang.String[] { "DocumentName", });
-    internal_static_ScanFilesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_ScanFilesResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ScanFilesResponse_descriptor,
-        new java.lang.String[] { "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

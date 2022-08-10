@@ -30,38 +30,6 @@ public final class PrinterGrpc {
   public static final String SERVICE_NAME = "Printer";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<grpc.printer.ScanFilesRequest,
-      grpc.printer.ScanFilesResponse> getScanFilesMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ScanFiles",
-      requestType = grpc.printer.ScanFilesRequest.class,
-      responseType = grpc.printer.ScanFilesResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<grpc.printer.ScanFilesRequest,
-      grpc.printer.ScanFilesResponse> getScanFilesMethod() {
-    io.grpc.MethodDescriptor<grpc.printer.ScanFilesRequest, grpc.printer.ScanFilesResponse> getScanFilesMethod;
-    if ((getScanFilesMethod = PrinterGrpc.getScanFilesMethod) == null) {
-      synchronized (PrinterGrpc.class) {
-        if ((getScanFilesMethod = PrinterGrpc.getScanFilesMethod) == null) {
-          PrinterGrpc.getScanFilesMethod = getScanFilesMethod = 
-              io.grpc.MethodDescriptor.<grpc.printer.ScanFilesRequest, grpc.printer.ScanFilesResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-              .setFullMethodName(generateFullMethodName(
-                  "Printer", "ScanFiles"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.printer.ScanFilesRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.printer.ScanFilesResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new PrinterMethodDescriptorSupplier("ScanFiles"))
-                  .build();
-          }
-        }
-     }
-     return getScanFilesMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<grpc.printer.PrintsAllDocumentsRequest,
       grpc.printer.PrintsAllDocumentsResponse> getPrintsAllDocumentsMethod;
 
@@ -126,17 +94,6 @@ public final class PrinterGrpc {
 
     /**
      * <pre>
-     *Client streaming rpc
-     *Sends scanned files to the cloud
-     * </pre>
-     */
-    public io.grpc.stub.StreamObserver<grpc.printer.ScanFilesRequest> scanFiles(
-        io.grpc.stub.StreamObserver<grpc.printer.ScanFilesResponse> responseObserver) {
-      return asyncUnimplementedStreamingCall(getScanFilesMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
      *Bidirectional rpc
      *Prints all the documents on queue
      * </pre>
@@ -148,13 +105,6 @@ public final class PrinterGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getScanFilesMethod(),
-            asyncClientStreamingCall(
-              new MethodHandlers<
-                grpc.printer.ScanFilesRequest,
-                grpc.printer.ScanFilesResponse>(
-                  this, METHODID_SCAN_FILES)))
           .addMethod(
             getPrintsAllDocumentsMethod(),
             asyncBidiStreamingCall(
@@ -185,18 +135,6 @@ public final class PrinterGrpc {
     protected PrinterStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new PrinterStub(channel, callOptions);
-    }
-
-    /**
-     * <pre>
-     *Client streaming rpc
-     *Sends scanned files to the cloud
-     * </pre>
-     */
-    public io.grpc.stub.StreamObserver<grpc.printer.ScanFilesRequest> scanFiles(
-        io.grpc.stub.StreamObserver<grpc.printer.ScanFilesResponse> responseObserver) {
-      return asyncClientStreamingCall(
-          getChannel().newCall(getScanFilesMethod(), getCallOptions()), responseObserver);
     }
 
     /**
@@ -256,8 +194,7 @@ public final class PrinterGrpc {
     }
   }
 
-  private static final int METHODID_SCAN_FILES = 0;
-  private static final int METHODID_PRINTS_ALL_DOCUMENTS = 1;
+  private static final int METHODID_PRINTS_ALL_DOCUMENTS = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -286,9 +223,6 @@ public final class PrinterGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SCAN_FILES:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.scanFiles(
-              (io.grpc.stub.StreamObserver<grpc.printer.ScanFilesResponse>) responseObserver);
         case METHODID_PRINTS_ALL_DOCUMENTS:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.printsAllDocuments(
               (io.grpc.stub.StreamObserver<grpc.printer.PrintsAllDocumentsResponse>) responseObserver);
@@ -343,7 +277,6 @@ public final class PrinterGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PrinterFileDescriptorSupplier())
-              .addMethod(getScanFilesMethod())
               .addMethod(getPrintsAllDocumentsMethod())
               .build();
         }

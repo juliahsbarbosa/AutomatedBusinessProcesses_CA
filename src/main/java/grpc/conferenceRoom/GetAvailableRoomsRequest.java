@@ -21,7 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private GetAvailableRoomsRequest() {
     date_ = "";
-    time_ = "";
+    timeslot_ = "";
   }
 
   @java.lang.Override
@@ -57,7 +57,7 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            time_ = s;
+            timeslot_ = s;
             break;
           }
           default: {
@@ -126,34 +126,34 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TIME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object time_;
+  public static final int TIMESLOT_FIELD_NUMBER = 2;
+  private volatile java.lang.Object timeslot_;
   /**
-   * <code>string time = 2;</code>
+   * <code>string timeslot = 2;</code>
    */
-  public java.lang.String getTime() {
-    java.lang.Object ref = time_;
+  public java.lang.String getTimeslot() {
+    java.lang.Object ref = timeslot_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      time_ = s;
+      timeslot_ = s;
       return s;
     }
   }
   /**
-   * <code>string time = 2;</code>
+   * <code>string timeslot = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getTimeBytes() {
-    java.lang.Object ref = time_;
+      getTimeslotBytes() {
+    java.lang.Object ref = timeslot_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      time_ = b;
+      timeslot_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -177,8 +177,8 @@ private static final long serialVersionUID = 0L;
     if (!getDateBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, date_);
     }
-    if (!getTimeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, time_);
+    if (!getTimeslotBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, timeslot_);
     }
     unknownFields.writeTo(output);
   }
@@ -192,8 +192,8 @@ private static final long serialVersionUID = 0L;
     if (!getDateBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, date_);
     }
-    if (!getTimeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, time_);
+    if (!getTimeslotBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, timeslot_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -213,8 +213,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getDate()
         .equals(other.getDate());
-    result = result && getTime()
-        .equals(other.getTime());
+    result = result && getTimeslot()
+        .equals(other.getTimeslot());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -228,8 +228,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + DATE_FIELD_NUMBER;
     hash = (53 * hash) + getDate().hashCode();
-    hash = (37 * hash) + TIME_FIELD_NUMBER;
-    hash = (53 * hash) + getTime().hashCode();
+    hash = (37 * hash) + TIMESLOT_FIELD_NUMBER;
+    hash = (53 * hash) + getTimeslot().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -369,7 +369,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       date_ = "";
 
-      time_ = "";
+      timeslot_ = "";
 
       return this;
     }
@@ -398,7 +398,7 @@ private static final long serialVersionUID = 0L;
     public grpc.conferenceRoom.GetAvailableRoomsRequest buildPartial() {
       grpc.conferenceRoom.GetAvailableRoomsRequest result = new grpc.conferenceRoom.GetAvailableRoomsRequest(this);
       result.date_ = date_;
-      result.time_ = time_;
+      result.timeslot_ = timeslot_;
       onBuilt();
       return result;
     }
@@ -451,8 +451,8 @@ private static final long serialVersionUID = 0L;
         date_ = other.date_;
         onChanged();
       }
-      if (!other.getTime().isEmpty()) {
-        time_ = other.time_;
+      if (!other.getTimeslot().isEmpty()) {
+        timeslot_ = other.timeslot_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -553,71 +553,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object time_ = "";
+    private java.lang.Object timeslot_ = "";
     /**
-     * <code>string time = 2;</code>
+     * <code>string timeslot = 2;</code>
      */
-    public java.lang.String getTime() {
-      java.lang.Object ref = time_;
+    public java.lang.String getTimeslot() {
+      java.lang.Object ref = timeslot_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        time_ = s;
+        timeslot_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string time = 2;</code>
+     * <code>string timeslot = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getTimeBytes() {
-      java.lang.Object ref = time_;
+        getTimeslotBytes() {
+      java.lang.Object ref = timeslot_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        time_ = b;
+        timeslot_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string time = 2;</code>
+     * <code>string timeslot = 2;</code>
      */
-    public Builder setTime(
+    public Builder setTimeslot(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      time_ = value;
+      timeslot_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string time = 2;</code>
+     * <code>string timeslot = 2;</code>
      */
-    public Builder clearTime() {
+    public Builder clearTimeslot() {
       
-      time_ = getDefaultInstance().getTime();
+      timeslot_ = getDefaultInstance().getTimeslot();
       onChanged();
       return this;
     }
     /**
-     * <code>string time = 2;</code>
+     * <code>string timeslot = 2;</code>
      */
-    public Builder setTimeBytes(
+    public Builder setTimeslotBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      time_ = value;
+      timeslot_ = value;
       onChanged();
       return this;
     }

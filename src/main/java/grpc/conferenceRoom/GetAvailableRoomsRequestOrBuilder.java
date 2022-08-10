@@ -18,12 +18,12 @@ public interface GetAvailableRoomsRequestOrBuilder extends
       getDateBytes();
 
   /**
-   * <code>string time = 2;</code>
+   * <code>string timeslot = 2;</code>
    */
-  java.lang.String getTime();
+  java.lang.String getTimeslot();
   /**
-   * <code>string time = 2;</code>
+   * <code>string timeslot = 2;</code>
    */
   com.google.protobuf.ByteString
-      getTimeBytes();
+      getTimeslotBytes();
 }

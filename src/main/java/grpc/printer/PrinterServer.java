@@ -3,6 +3,7 @@ package grpc.printer;
 
 //Required java packages
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 
@@ -10,7 +11,7 @@ import java.util.logging.Logger;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-
+import grpc.printer.PrintsAllDocumentsRequest;
 //ImplBase class that was generated from the proto file
 import grpc.printer.PrinterGrpc.PrinterImplBase;
 
@@ -42,20 +43,13 @@ public class PrinterServer extends PrinterImplBase {
 	}
 
 	// RPC methods that have been defined in the Printer.proto
-
-	//Client Streaming RPC
-	@Override
-	public StreamObserver<ScanFilesRequest> scanFiles(StreamObserver<ScanFilesResponse> responseObserver) {
-		// TODO Auto-generated method stub
-		return super.scanFiles(responseObserver);
-	}
-
 	//Bidirectional RPC
 	@Override
 	public StreamObserver<PrintsAllDocumentsRequest> printsAllDocuments(
 			StreamObserver<PrintsAllDocumentsResponse> responseObserver) {
-		// TODO Auto-generated method stub
-		return super.printsAllDocuments(responseObserver);
+		ArrayList<String> documentList = new ArrayList<String>();
+		return null;
+
 	}
 
 	

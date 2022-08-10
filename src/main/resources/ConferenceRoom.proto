@@ -16,19 +16,18 @@ service ConferenceRoom {
 	rpc BookConferenceRoom (BookConferenceRoomRequest) returns (BookConferenceRoomResponse) {}
 
 	//Client streaming
-	//Sensor sends conference room occupancy data, server returns empty
-	rpc SendOccupancyData (stream OccupancyDataRequest) returns (Empty) {}
+	//Sensor keeps sending the occcupancy data, the server returns the total occupacy data
+	rpc SendOccupancyData (stream OccupancyDataRequest) returns (OccupancyDataResponse) {}
 }
 
 // Defining the data types
 message GetAvailableRoomsRequest {
 	string date = 1;
-	string time = 2;
+	string timeslot = 2;
 }
 
 message GetAvailableRoomsResponse {
-	string conferanceRoomId = 2;
-	string timeslotsAvailable = 3;
+	int32 conferenceRoomId = 2;
 }
 
 message BookConferenceRoomRequest {
@@ -46,5 +45,7 @@ message OccupancyDataRequest {
 	int32 numOccupancy = 1;
 }
 
-message Empty {
+message OccupancyDataResponse {
+	int32 totalOccupancy = 1;
+
 }
