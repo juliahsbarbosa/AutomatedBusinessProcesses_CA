@@ -16,9 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ClockoutRequest() {
-    employeeId_ = "";
-    break_ = "";
-    endShift_ = "";
+    employeeId_ = 0;
+    dateOut_ = "";
+    timeOut_ = "";
   }
 
   @java.lang.Override
@@ -45,22 +45,21 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            employeeId_ = s;
+            employeeId_ = input.readInt32();
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            break_ = s;
+            dateOut_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            endShift_ = s;
+            timeOut_ = s;
             break;
           }
           default: {
@@ -96,101 +95,76 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMPLOYEEID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object employeeId_;
+  private int employeeId_;
   /**
-   * <code>string employeeId = 1;</code>
+   * <code>int32 employeeId = 1;</code>
    */
-  public java.lang.String getEmployeeId() {
-    java.lang.Object ref = employeeId_;
+  public int getEmployeeId() {
+    return employeeId_;
+  }
+
+  public static final int DATEOUT_FIELD_NUMBER = 2;
+  private volatile java.lang.Object dateOut_;
+  /**
+   * <code>string dateOut = 2;</code>
+   */
+  public java.lang.String getDateOut() {
+    java.lang.Object ref = dateOut_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      employeeId_ = s;
+      dateOut_ = s;
       return s;
     }
   }
   /**
-   * <code>string employeeId = 1;</code>
+   * <code>string dateOut = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getEmployeeIdBytes() {
-    java.lang.Object ref = employeeId_;
+      getDateOutBytes() {
+    java.lang.Object ref = dateOut_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      employeeId_ = b;
+      dateOut_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int BREAK_FIELD_NUMBER = 2;
-  private volatile java.lang.Object break_;
+  public static final int TIMEOUT_FIELD_NUMBER = 3;
+  private volatile java.lang.Object timeOut_;
   /**
-   * <code>string break = 2;</code>
+   * <code>string timeOut = 3;</code>
    */
-  public java.lang.String getBreak() {
-    java.lang.Object ref = break_;
+  public java.lang.String getTimeOut() {
+    java.lang.Object ref = timeOut_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      break_ = s;
+      timeOut_ = s;
       return s;
     }
   }
   /**
-   * <code>string break = 2;</code>
+   * <code>string timeOut = 3;</code>
    */
   public com.google.protobuf.ByteString
-      getBreakBytes() {
-    java.lang.Object ref = break_;
+      getTimeOutBytes() {
+    java.lang.Object ref = timeOut_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      break_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int ENDSHIFT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object endShift_;
-  /**
-   * <code>string endShift = 3;</code>
-   */
-  public java.lang.String getEndShift() {
-    java.lang.Object ref = endShift_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      endShift_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string endShift = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getEndShiftBytes() {
-    java.lang.Object ref = endShift_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      endShift_ = b;
+      timeOut_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -211,14 +185,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getEmployeeIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, employeeId_);
+    if (employeeId_ != 0) {
+      output.writeInt32(1, employeeId_);
     }
-    if (!getBreakBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, break_);
+    if (!getDateOutBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, dateOut_);
     }
-    if (!getEndShiftBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endShift_);
+    if (!getTimeOutBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, timeOut_);
     }
     unknownFields.writeTo(output);
   }
@@ -229,14 +203,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getEmployeeIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, employeeId_);
+    if (employeeId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, employeeId_);
     }
-    if (!getBreakBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, break_);
+    if (!getDateOutBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, dateOut_);
     }
-    if (!getEndShiftBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endShift_);
+    if (!getTimeOutBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, timeOut_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -254,12 +229,12 @@ private static final long serialVersionUID = 0L;
     grpc.clockInOut.ClockoutRequest other = (grpc.clockInOut.ClockoutRequest) obj;
 
     boolean result = true;
-    result = result && getEmployeeId()
-        .equals(other.getEmployeeId());
-    result = result && getBreak()
-        .equals(other.getBreak());
-    result = result && getEndShift()
-        .equals(other.getEndShift());
+    result = result && (getEmployeeId()
+        == other.getEmployeeId());
+    result = result && getDateOut()
+        .equals(other.getDateOut());
+    result = result && getTimeOut()
+        .equals(other.getTimeOut());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -272,11 +247,11 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + EMPLOYEEID_FIELD_NUMBER;
-    hash = (53 * hash) + getEmployeeId().hashCode();
-    hash = (37 * hash) + BREAK_FIELD_NUMBER;
-    hash = (53 * hash) + getBreak().hashCode();
-    hash = (37 * hash) + ENDSHIFT_FIELD_NUMBER;
-    hash = (53 * hash) + getEndShift().hashCode();
+    hash = (53 * hash) + getEmployeeId();
+    hash = (37 * hash) + DATEOUT_FIELD_NUMBER;
+    hash = (53 * hash) + getDateOut().hashCode();
+    hash = (37 * hash) + TIMEOUT_FIELD_NUMBER;
+    hash = (53 * hash) + getTimeOut().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -410,11 +385,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      employeeId_ = "";
+      employeeId_ = 0;
 
-      break_ = "";
+      dateOut_ = "";
 
-      endShift_ = "";
+      timeOut_ = "";
 
       return this;
     }
@@ -443,8 +418,8 @@ private static final long serialVersionUID = 0L;
     public grpc.clockInOut.ClockoutRequest buildPartial() {
       grpc.clockInOut.ClockoutRequest result = new grpc.clockInOut.ClockoutRequest(this);
       result.employeeId_ = employeeId_;
-      result.break_ = break_;
-      result.endShift_ = endShift_;
+      result.dateOut_ = dateOut_;
+      result.timeOut_ = timeOut_;
       onBuilt();
       return result;
     }
@@ -493,16 +468,15 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.clockInOut.ClockoutRequest other) {
       if (other == grpc.clockInOut.ClockoutRequest.getDefaultInstance()) return this;
-      if (!other.getEmployeeId().isEmpty()) {
-        employeeId_ = other.employeeId_;
+      if (other.getEmployeeId() != 0) {
+        setEmployeeId(other.getEmployeeId());
+      }
+      if (!other.getDateOut().isEmpty()) {
+        dateOut_ = other.dateOut_;
         onChanged();
       }
-      if (!other.getBreak().isEmpty()) {
-        break_ = other.break_;
-        onChanged();
-      }
-      if (!other.getEndShift().isEmpty()) {
-        endShift_ = other.endShift_;
+      if (!other.getTimeOut().isEmpty()) {
+        timeOut_ = other.timeOut_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -534,209 +508,166 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object employeeId_ = "";
+    private int employeeId_ ;
     /**
-     * <code>string employeeId = 1;</code>
+     * <code>int32 employeeId = 1;</code>
      */
-    public java.lang.String getEmployeeId() {
-      java.lang.Object ref = employeeId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        employeeId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getEmployeeId() {
+      return employeeId_;
     }
     /**
-     * <code>string employeeId = 1;</code>
+     * <code>int32 employeeId = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getEmployeeIdBytes() {
-      java.lang.Object ref = employeeId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        employeeId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string employeeId = 1;</code>
-     */
-    public Builder setEmployeeId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setEmployeeId(int value) {
+      
       employeeId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string employeeId = 1;</code>
+     * <code>int32 employeeId = 1;</code>
      */
     public Builder clearEmployeeId() {
       
-      employeeId_ = getDefaultInstance().getEmployeeId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string employeeId = 1;</code>
-     */
-    public Builder setEmployeeIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      employeeId_ = value;
+      employeeId_ = 0;
       onChanged();
       return this;
     }
 
-    private java.lang.Object break_ = "";
+    private java.lang.Object dateOut_ = "";
     /**
-     * <code>string break = 2;</code>
+     * <code>string dateOut = 2;</code>
      */
-    public java.lang.String getBreak() {
-      java.lang.Object ref = break_;
+    public java.lang.String getDateOut() {
+      java.lang.Object ref = dateOut_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        break_ = s;
+        dateOut_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string break = 2;</code>
+     * <code>string dateOut = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getBreakBytes() {
-      java.lang.Object ref = break_;
+        getDateOutBytes() {
+      java.lang.Object ref = dateOut_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        break_ = b;
+        dateOut_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string break = 2;</code>
+     * <code>string dateOut = 2;</code>
      */
-    public Builder setBreak(
+    public Builder setDateOut(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      break_ = value;
+      dateOut_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string break = 2;</code>
+     * <code>string dateOut = 2;</code>
      */
-    public Builder clearBreak() {
+    public Builder clearDateOut() {
       
-      break_ = getDefaultInstance().getBreak();
+      dateOut_ = getDefaultInstance().getDateOut();
       onChanged();
       return this;
     }
     /**
-     * <code>string break = 2;</code>
+     * <code>string dateOut = 2;</code>
      */
-    public Builder setBreakBytes(
+    public Builder setDateOutBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      break_ = value;
+      dateOut_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object endShift_ = "";
+    private java.lang.Object timeOut_ = "";
     /**
-     * <code>string endShift = 3;</code>
+     * <code>string timeOut = 3;</code>
      */
-    public java.lang.String getEndShift() {
-      java.lang.Object ref = endShift_;
+    public java.lang.String getTimeOut() {
+      java.lang.Object ref = timeOut_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        endShift_ = s;
+        timeOut_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string endShift = 3;</code>
+     * <code>string timeOut = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getEndShiftBytes() {
-      java.lang.Object ref = endShift_;
+        getTimeOutBytes() {
+      java.lang.Object ref = timeOut_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        endShift_ = b;
+        timeOut_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string endShift = 3;</code>
+     * <code>string timeOut = 3;</code>
      */
-    public Builder setEndShift(
+    public Builder setTimeOut(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      endShift_ = value;
+      timeOut_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string endShift = 3;</code>
+     * <code>string timeOut = 3;</code>
      */
-    public Builder clearEndShift() {
+    public Builder clearTimeOut() {
       
-      endShift_ = getDefaultInstance().getEndShift();
+      timeOut_ = getDefaultInstance().getTimeOut();
       onChanged();
       return this;
     }
     /**
-     * <code>string endShift = 3;</code>
+     * <code>string timeOut = 3;</code>
      */
-    public Builder setEndShiftBytes(
+    public Builder setTimeOutBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      endShift_ = value;
+      timeOut_ = value;
       onChanged();
       return this;
     }

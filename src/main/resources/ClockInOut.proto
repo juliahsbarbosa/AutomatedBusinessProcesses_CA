@@ -17,23 +17,21 @@ service Clockin {
 
 // Defining the data types
 message ClockinRequest {
-	string employeeId = 1;
+	int32 employeeId = 1;
+	string dateIn = 2;
+	string timeIn = 3;
 }
 
 message ClockinResponse {
-	string employeeId = 1;
-	string date = 2;
-	string timein = 3;
+	string message = 1;
 }
 
 message ClockoutRequest {
-	string employeeId = 1;
-	string break = 2;
-	string endShift = 3;
+	int32 employeeId = 1;
+	string dateOut = 2;
+	string timeOut = 3;
 }
 
 message ClockoutResponse {
-	string employeeId = 1;
-	string date = 2;
-	string timeout = 3;
+	string message = 1;
 }

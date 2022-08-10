@@ -43,17 +43,16 @@ public final class ClockInClockOutService {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020ClockInOut.proto\"$\n\016ClockinRequest\022\022\n\n" +
-      "employeeId\030\001 \001(\t\"C\n\017ClockinResponse\022\022\n\ne" +
-      "mployeeId\030\001 \001(\t\022\014\n\004date\030\002 \001(\t\022\016\n\006timein\030" +
-      "\003 \001(\t\"F\n\017ClockoutRequest\022\022\n\nemployeeId\030\001" +
-      " \001(\t\022\r\n\005break\030\002 \001(\t\022\020\n\010endShift\030\003 \001(\t\"E\n" +
-      "\020ClockoutResponse\022\022\n\nemployeeId\030\001 \001(\t\022\014\n" +
-      "\004date\030\002 \001(\t\022\017\n\007timeout\030\003 \001(\t2l\n\007Clockin\022" +
-      ".\n\007ClockIn\022\017.ClockinRequest\032\020.ClockinRes" +
-      "ponse\"\000\0221\n\010ClockOut\022\020.ClockoutRequest\032\021." +
-      "ClockoutResponse\"\000B+\n\017grpc.clockInOutB\026C" +
-      "lockInClockOutServiceP\001b\006proto3"
+      "\n\020ClockInOut.proto\"D\n\016ClockinRequest\022\022\n\n" +
+      "employeeId\030\001 \001(\005\022\016\n\006dateIn\030\002 \001(\t\022\016\n\006time" +
+      "In\030\003 \001(\t\"\"\n\017ClockinResponse\022\017\n\007message\030\001" +
+      " \001(\t\"G\n\017ClockoutRequest\022\022\n\nemployeeId\030\001 " +
+      "\001(\005\022\017\n\007dateOut\030\002 \001(\t\022\017\n\007timeOut\030\003 \001(\t\"#\n" +
+      "\020ClockoutResponse\022\017\n\007message\030\001 \001(\t2l\n\007Cl" +
+      "ockin\022.\n\007ClockIn\022\017.ClockinRequest\032\020.Cloc" +
+      "kinResponse\"\000\0221\n\010ClockOut\022\020.ClockoutRequ" +
+      "est\032\021.ClockoutResponse\"\000B+\n\017grpc.clockIn" +
+      "OutB\026ClockInClockOutServiceP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -72,25 +71,25 @@ public final class ClockInClockOutService {
     internal_static_ClockinRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClockinRequest_descriptor,
-        new java.lang.String[] { "EmployeeId", });
+        new java.lang.String[] { "EmployeeId", "DateIn", "TimeIn", });
     internal_static_ClockinResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_ClockinResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClockinResponse_descriptor,
-        new java.lang.String[] { "EmployeeId", "Date", "Timein", });
+        new java.lang.String[] { "Message", });
     internal_static_ClockoutRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_ClockoutRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClockoutRequest_descriptor,
-        new java.lang.String[] { "EmployeeId", "Break", "EndShift", });
+        new java.lang.String[] { "EmployeeId", "DateOut", "TimeOut", });
     internal_static_ClockoutResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_ClockoutResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClockoutResponse_descriptor,
-        new java.lang.String[] { "EmployeeId", "Date", "Timeout", });
+        new java.lang.String[] { "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

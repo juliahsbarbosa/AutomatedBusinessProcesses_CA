@@ -8,12 +8,27 @@ public interface ClockinRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string employeeId = 1;</code>
+   * <code>int32 employeeId = 1;</code>
    */
-  java.lang.String getEmployeeId();
+  int getEmployeeId();
+
   /**
-   * <code>string employeeId = 1;</code>
+   * <code>string dateIn = 2;</code>
+   */
+  java.lang.String getDateIn();
+  /**
+   * <code>string dateIn = 2;</code>
    */
   com.google.protobuf.ByteString
-      getEmployeeIdBytes();
+      getDateInBytes();
+
+  /**
+   * <code>string timeIn = 3;</code>
+   */
+  java.lang.String getTimeIn();
+  /**
+   * <code>string timeIn = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getTimeInBytes();
 }

@@ -8,24 +8,29 @@ option java_outer_classname = "PrinterService";
 service Printer {
 	//Client streaming rpc
 	//Sends scanned files to the cloud
-	rpc ScanFiles(stream ScanFilesRequest) returns (ScanFilesResponse){}
+	rpc ScanFiles (stream ScanFilesRequest) returns (ScanFilesResponse) {}
 
 	//Bidirectional rpc
 	//Prints all the documents on queue
-	rpc PrintsAllDocuments(stream Document) returns (stream Document){}
+	rpc PrintsAllDocuments (stream PrintsAllDocumentsRequest) returns (stream PrintsAllDocumentsResponse) {}
 }
 
 // Defining the data types
-message Document {
+message PrintsAllDocumentsRequest {
 	string documentName = 1;
 	int32 copies = 2;
 }
 
-message ScanFilesRequest{
+message PrintsAllDocumentsResponse {
+	string documentName = 1;
+	int32 copies = 2;
+}
+
+message ScanFilesRequest {
 	string documentName = 1;
 }
 
-message ScanFilesResponse{
+message ScanFilesResponse {
 	string message = 1;
 }
 

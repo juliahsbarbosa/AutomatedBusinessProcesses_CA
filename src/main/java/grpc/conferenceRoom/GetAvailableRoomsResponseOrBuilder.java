@@ -8,16 +8,6 @@ public interface GetAvailableRoomsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string date = 1;</code>
-   */
-  java.lang.String getDate();
-  /**
-   * <code>string date = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getDateBytes();
-
-  /**
    * <code>string conferanceRoomId = 2;</code>
    */
   java.lang.String getConferanceRoomId();

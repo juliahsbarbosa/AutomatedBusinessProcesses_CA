@@ -7,8 +7,8 @@ option java_outer_classname = "ConferenceRoomService";
 // Defining the service containing methods
 service ConferenceRoom {
 
-//Server stream rpc
-//Client requests available conference rooms, server returns a stream of available rooms
+	//Server stream rpc
+	//Client requests available conference rooms, server returns a stream of available rooms
 	rpc GetAvailableRooms (GetAvailableRoomsRequest) returns (stream GetAvailableRoomsResponse) {}
 
 	//Unary rpc
@@ -24,11 +24,9 @@ service ConferenceRoom {
 message GetAvailableRoomsRequest {
 	string date = 1;
 	string time = 2;
-	string officeName = 3;
 }
 
 message GetAvailableRoomsResponse {
-	string date = 1;
 	string conferanceRoomId = 2;
 	string timeslotsAvailable = 3;
 }
@@ -37,7 +35,7 @@ message BookConferenceRoomRequest {
 	string date = 1;
 	string timeslot = 2;
 	int32 numParticipants = 3;
-	string conferanceRoomId = 4;
+	int32 conferenceRoomId = 4;
 }
 
 message BookConferenceRoomResponse {

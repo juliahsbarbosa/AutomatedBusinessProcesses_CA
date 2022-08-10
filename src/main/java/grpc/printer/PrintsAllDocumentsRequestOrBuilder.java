@@ -3,8 +3,8 @@
 
 package grpc.printer;
 
-public interface DocumentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Document)
+public interface PrintsAllDocumentsRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:PrintsAllDocumentsRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -16,6 +16,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ * Defining the service containing methods
+ * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
@@ -147,6 +150,9 @@ public final class ConferenceRoomGrpc {
   }
 
   /**
+   * <pre>
+   * Defining the service containing methods
+   * </pre>
    */
   public static abstract class ConferenceRoomImplBase implements io.grpc.BindableService {
 
@@ -211,6 +217,9 @@ public final class ConferenceRoomGrpc {
   }
 
   /**
+   * <pre>
+   * Defining the service containing methods
+   * </pre>
    */
   public static final class ConferenceRoomStub extends io.grpc.stub.AbstractStub<ConferenceRoomStub> {
     private ConferenceRoomStub(io.grpc.Channel channel) {
@@ -266,6 +275,9 @@ public final class ConferenceRoomGrpc {
   }
 
   /**
+   * <pre>
+   * Defining the service containing methods
+   * </pre>
    */
   public static final class ConferenceRoomBlockingStub extends io.grpc.stub.AbstractStub<ConferenceRoomBlockingStub> {
     private ConferenceRoomBlockingStub(io.grpc.Channel channel) {
@@ -308,6 +320,9 @@ public final class ConferenceRoomGrpc {
   }
 
   /**
+   * <pre>
+   * Defining the service containing methods
+   * </pre>
    */
   public static final class ConferenceRoomFutureStub extends io.grpc.stub.AbstractStub<ConferenceRoomFutureStub> {
     private ConferenceRoomFutureStub(io.grpc.Channel channel) {

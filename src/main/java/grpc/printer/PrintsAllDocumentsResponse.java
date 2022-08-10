@@ -4,18 +4,18 @@
 package grpc.printer;
 
 /**
- * Protobuf type {@code Document}
+ * Protobuf type {@code PrintsAllDocumentsResponse}
  */
-public  final class Document extends
+public  final class PrintsAllDocumentsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Document)
-    DocumentOrBuilder {
+    // @@protoc_insertion_point(message_implements:PrintsAllDocumentsResponse)
+    PrintsAllDocumentsResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use Document.newBuilder() to construct.
-  private Document(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use PrintsAllDocumentsResponse.newBuilder() to construct.
+  private PrintsAllDocumentsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Document() {
+  private PrintsAllDocumentsResponse() {
     documentName_ = "";
     copies_ = 0;
   }
@@ -25,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Document(
+  private PrintsAllDocumentsResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -76,15 +76,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.printer.PrinterService.internal_static_Document_descriptor;
+    return grpc.printer.PrinterService.internal_static_PrintsAllDocumentsResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.printer.PrinterService.internal_static_Document_fieldAccessorTable
+    return grpc.printer.PrinterService.internal_static_PrintsAllDocumentsResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            grpc.printer.Document.class, grpc.printer.Document.Builder.class);
+            grpc.printer.PrintsAllDocumentsResponse.class, grpc.printer.PrintsAllDocumentsResponse.Builder.class);
   }
 
   public static final int DOCUMENTNAME_FIELD_NUMBER = 1;
@@ -176,10 +176,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof grpc.printer.Document)) {
+    if (!(obj instanceof grpc.printer.PrintsAllDocumentsResponse)) {
       return super.equals(obj);
     }
-    grpc.printer.Document other = (grpc.printer.Document) obj;
+    grpc.printer.PrintsAllDocumentsResponse other = (grpc.printer.PrintsAllDocumentsResponse) obj;
 
     boolean result = true;
     result = result && getDocumentName()
@@ -206,69 +206,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.printer.Document parseFrom(byte[] data)
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.printer.Document parseFrom(java.io.InputStream input)
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.printer.Document parseDelimitedFrom(java.io.InputStream input)
+  public static grpc.printer.PrintsAllDocumentsResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static grpc.printer.Document parseDelimitedFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.printer.Document parseFrom(
+  public static grpc.printer.PrintsAllDocumentsResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -281,7 +281,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(grpc.printer.Document prototype) {
+  public static Builder newBuilder(grpc.printer.PrintsAllDocumentsResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -297,26 +297,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Document}
+   * Protobuf type {@code PrintsAllDocumentsResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Document)
-      grpc.printer.DocumentOrBuilder {
+      // @@protoc_insertion_point(builder_implements:PrintsAllDocumentsResponse)
+      grpc.printer.PrintsAllDocumentsResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.printer.PrinterService.internal_static_Document_descriptor;
+      return grpc.printer.PrinterService.internal_static_PrintsAllDocumentsResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.printer.PrinterService.internal_static_Document_fieldAccessorTable
+      return grpc.printer.PrinterService.internal_static_PrintsAllDocumentsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              grpc.printer.Document.class, grpc.printer.Document.Builder.class);
+              grpc.printer.PrintsAllDocumentsResponse.class, grpc.printer.PrintsAllDocumentsResponse.Builder.class);
     }
 
-    // Construct using grpc.printer.Document.newBuilder()
+    // Construct using grpc.printer.PrintsAllDocumentsResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -344,17 +344,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.printer.PrinterService.internal_static_Document_descriptor;
+      return grpc.printer.PrinterService.internal_static_PrintsAllDocumentsResponse_descriptor;
     }
 
     @java.lang.Override
-    public grpc.printer.Document getDefaultInstanceForType() {
-      return grpc.printer.Document.getDefaultInstance();
+    public grpc.printer.PrintsAllDocumentsResponse getDefaultInstanceForType() {
+      return grpc.printer.PrintsAllDocumentsResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public grpc.printer.Document build() {
-      grpc.printer.Document result = buildPartial();
+    public grpc.printer.PrintsAllDocumentsResponse build() {
+      grpc.printer.PrintsAllDocumentsResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -362,8 +362,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public grpc.printer.Document buildPartial() {
-      grpc.printer.Document result = new grpc.printer.Document(this);
+    public grpc.printer.PrintsAllDocumentsResponse buildPartial() {
+      grpc.printer.PrintsAllDocumentsResponse result = new grpc.printer.PrintsAllDocumentsResponse(this);
       result.documentName_ = documentName_;
       result.copies_ = copies_;
       onBuilt();
@@ -404,16 +404,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof grpc.printer.Document) {
-        return mergeFrom((grpc.printer.Document)other);
+      if (other instanceof grpc.printer.PrintsAllDocumentsResponse) {
+        return mergeFrom((grpc.printer.PrintsAllDocumentsResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(grpc.printer.Document other) {
-      if (other == grpc.printer.Document.getDefaultInstance()) return this;
+    public Builder mergeFrom(grpc.printer.PrintsAllDocumentsResponse other) {
+      if (other == grpc.printer.PrintsAllDocumentsResponse.getDefaultInstance()) return this;
       if (!other.getDocumentName().isEmpty()) {
         documentName_ = other.documentName_;
         onChanged();
@@ -436,11 +436,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      grpc.printer.Document parsedMessage = null;
+      grpc.printer.PrintsAllDocumentsResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (grpc.printer.Document) e.getUnfinishedMessage();
+        parsedMessage = (grpc.printer.PrintsAllDocumentsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -557,41 +557,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Document)
+    // @@protoc_insertion_point(builder_scope:PrintsAllDocumentsResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:Document)
-  private static final grpc.printer.Document DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:PrintsAllDocumentsResponse)
+  private static final grpc.printer.PrintsAllDocumentsResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new grpc.printer.Document();
+    DEFAULT_INSTANCE = new grpc.printer.PrintsAllDocumentsResponse();
   }
 
-  public static grpc.printer.Document getDefaultInstance() {
+  public static grpc.printer.PrintsAllDocumentsResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Document>
-      PARSER = new com.google.protobuf.AbstractParser<Document>() {
+  private static final com.google.protobuf.Parser<PrintsAllDocumentsResponse>
+      PARSER = new com.google.protobuf.AbstractParser<PrintsAllDocumentsResponse>() {
     @java.lang.Override
-    public Document parsePartialFrom(
+    public PrintsAllDocumentsResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Document(input, extensionRegistry);
+      return new PrintsAllDocumentsResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Document> parser() {
+  public static com.google.protobuf.Parser<PrintsAllDocumentsResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<Document> getParserForType() {
+  public com.google.protobuf.Parser<PrintsAllDocumentsResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public grpc.printer.Document getDefaultInstanceForType() {
+  public grpc.printer.PrintsAllDocumentsResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

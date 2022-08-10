@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetAvailableRoomsResponse() {
-    date_ = "";
     conferanceRoomId_ = "";
     timeslotsAvailable_ = "";
   }
@@ -45,12 +44,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            date_ = s;
-            break;
-          }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -93,40 +86,6 @@ private static final long serialVersionUID = 0L;
     return grpc.conferenceRoom.ConferenceRoomService.internal_static_GetAvailableRoomsResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             grpc.conferenceRoom.GetAvailableRoomsResponse.class, grpc.conferenceRoom.GetAvailableRoomsResponse.Builder.class);
-  }
-
-  public static final int DATE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object date_;
-  /**
-   * <code>string date = 1;</code>
-   */
-  public java.lang.String getDate() {
-    java.lang.Object ref = date_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      date_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string date = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getDateBytes() {
-    java.lang.Object ref = date_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      date_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   public static final int CONFERANCEROOMID_FIELD_NUMBER = 2;
@@ -211,9 +170,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDateBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, date_);
-    }
     if (!getConferanceRoomIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, conferanceRoomId_);
     }
@@ -229,9 +185,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDateBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, date_);
-    }
     if (!getConferanceRoomIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, conferanceRoomId_);
     }
@@ -254,8 +207,6 @@ private static final long serialVersionUID = 0L;
     grpc.conferenceRoom.GetAvailableRoomsResponse other = (grpc.conferenceRoom.GetAvailableRoomsResponse) obj;
 
     boolean result = true;
-    result = result && getDate()
-        .equals(other.getDate());
     result = result && getConferanceRoomId()
         .equals(other.getConferanceRoomId());
     result = result && getTimeslotsAvailable()
@@ -271,8 +222,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DATE_FIELD_NUMBER;
-    hash = (53 * hash) + getDate().hashCode();
     hash = (37 * hash) + CONFERANCEROOMID_FIELD_NUMBER;
     hash = (53 * hash) + getConferanceRoomId().hashCode();
     hash = (37 * hash) + TIMESLOTSAVAILABLE_FIELD_NUMBER;
@@ -410,8 +359,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      date_ = "";
-
       conferanceRoomId_ = "";
 
       timeslotsAvailable_ = "";
@@ -442,7 +389,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.conferenceRoom.GetAvailableRoomsResponse buildPartial() {
       grpc.conferenceRoom.GetAvailableRoomsResponse result = new grpc.conferenceRoom.GetAvailableRoomsResponse(this);
-      result.date_ = date_;
       result.conferanceRoomId_ = conferanceRoomId_;
       result.timeslotsAvailable_ = timeslotsAvailable_;
       onBuilt();
@@ -493,10 +439,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.conferenceRoom.GetAvailableRoomsResponse other) {
       if (other == grpc.conferenceRoom.GetAvailableRoomsResponse.getDefaultInstance()) return this;
-      if (!other.getDate().isEmpty()) {
-        date_ = other.date_;
-        onChanged();
-      }
       if (!other.getConferanceRoomId().isEmpty()) {
         conferanceRoomId_ = other.conferanceRoomId_;
         onChanged();
@@ -531,75 +473,6 @@ private static final long serialVersionUID = 0L;
           mergeFrom(parsedMessage);
         }
       }
-      return this;
-    }
-
-    private java.lang.Object date_ = "";
-    /**
-     * <code>string date = 1;</code>
-     */
-    public java.lang.String getDate() {
-      java.lang.Object ref = date_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        date_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string date = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDateBytes() {
-      java.lang.Object ref = date_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        date_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string date = 1;</code>
-     */
-    public Builder setDate(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      date_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string date = 1;</code>
-     */
-    public Builder clearDate() {
-      
-      date_ = getDefaultInstance().getDate();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string date = 1;</code>
-     */
-    public Builder setDateBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      date_ = value;
-      onChanged();
       return this;
     }
 

@@ -4,6 +4,10 @@
 package grpc.conferenceRoom;
 
 /**
+ * <pre>
+ * Defining the data types
+ * </pre>
+ *
  * Protobuf type {@code GetAvailableRoomsRequest}
  */
 public  final class GetAvailableRoomsRequest extends
@@ -18,7 +22,6 @@ private static final long serialVersionUID = 0L;
   private GetAvailableRoomsRequest() {
     date_ = "";
     time_ = "";
-    officeName_ = "";
   }
 
   @java.lang.Override
@@ -55,12 +58,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             time_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            officeName_ = s;
             break;
           }
           default: {
@@ -163,40 +160,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int OFFICENAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object officeName_;
-  /**
-   * <code>string officeName = 3;</code>
-   */
-  public java.lang.String getOfficeName() {
-    java.lang.Object ref = officeName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      officeName_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string officeName = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getOfficeNameBytes() {
-    java.lang.Object ref = officeName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      officeName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -217,9 +180,6 @@ private static final long serialVersionUID = 0L;
     if (!getTimeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, time_);
     }
-    if (!getOfficeNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, officeName_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -234,9 +194,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTimeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, time_);
-    }
-    if (!getOfficeNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, officeName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -258,8 +215,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDate());
     result = result && getTime()
         .equals(other.getTime());
-    result = result && getOfficeName()
-        .equals(other.getOfficeName());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -275,8 +230,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDate().hashCode();
     hash = (37 * hash) + TIME_FIELD_NUMBER;
     hash = (53 * hash) + getTime().hashCode();
-    hash = (37 * hash) + OFFICENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getOfficeName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -373,6 +326,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * Defining the data types
+   * </pre>
+   *
    * Protobuf type {@code GetAvailableRoomsRequest}
    */
   public static final class Builder extends
@@ -414,8 +371,6 @@ private static final long serialVersionUID = 0L;
 
       time_ = "";
 
-      officeName_ = "";
-
       return this;
     }
 
@@ -444,7 +399,6 @@ private static final long serialVersionUID = 0L;
       grpc.conferenceRoom.GetAvailableRoomsRequest result = new grpc.conferenceRoom.GetAvailableRoomsRequest(this);
       result.date_ = date_;
       result.time_ = time_;
-      result.officeName_ = officeName_;
       onBuilt();
       return result;
     }
@@ -499,10 +453,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTime().isEmpty()) {
         time_ = other.time_;
-        onChanged();
-      }
-      if (!other.getOfficeName().isEmpty()) {
-        officeName_ = other.officeName_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -668,75 +618,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       time_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object officeName_ = "";
-    /**
-     * <code>string officeName = 3;</code>
-     */
-    public java.lang.String getOfficeName() {
-      java.lang.Object ref = officeName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        officeName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string officeName = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getOfficeNameBytes() {
-      java.lang.Object ref = officeName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        officeName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string officeName = 3;</code>
-     */
-    public Builder setOfficeName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      officeName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string officeName = 3;</code>
-     */
-    public Builder clearOfficeName() {
-      
-      officeName_ = getDefaultInstance().getOfficeName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string officeName = 3;</code>
-     */
-    public Builder setOfficeNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      officeName_ = value;
       onChanged();
       return this;
     }

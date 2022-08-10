@@ -26,14 +26,4 @@ public interface GetAvailableRoomsRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTimeBytes();
-
-  /**
-   * <code>string officeName = 3;</code>
-   */
-  java.lang.String getOfficeName();
-  /**
-   * <code>string officeName = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getOfficeNameBytes();
 }

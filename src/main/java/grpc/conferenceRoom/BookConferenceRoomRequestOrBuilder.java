@@ -33,12 +33,7 @@ public interface BookConferenceRoomRequestOrBuilder extends
   int getNumParticipants();
 
   /**
-   * <code>string conferanceRoomId = 4;</code>
+   * <code>int32 conferenceRoomId = 4;</code>
    */
-  java.lang.String getConferanceRoomId();
-  /**
-   * <code>string conferanceRoomId = 4;</code>
-   */
-  com.google.protobuf.ByteString
-      getConferanceRoomIdBytes();
+  int getConferenceRoomId();
 }

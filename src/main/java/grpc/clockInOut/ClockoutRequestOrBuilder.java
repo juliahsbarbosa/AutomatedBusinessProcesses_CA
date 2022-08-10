@@ -8,32 +8,27 @@ public interface ClockoutRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string employeeId = 1;</code>
+   * <code>int32 employeeId = 1;</code>
    */
-  java.lang.String getEmployeeId();
-  /**
-   * <code>string employeeId = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getEmployeeIdBytes();
+  int getEmployeeId();
 
   /**
-   * <code>string break = 2;</code>
+   * <code>string dateOut = 2;</code>
    */
-  java.lang.String getBreak();
+  java.lang.String getDateOut();
   /**
-   * <code>string break = 2;</code>
+   * <code>string dateOut = 2;</code>
    */
   com.google.protobuf.ByteString
-      getBreakBytes();
+      getDateOutBytes();
 
   /**
-   * <code>string endShift = 3;</code>
+   * <code>string timeOut = 3;</code>
    */
-  java.lang.String getEndShift();
+  java.lang.String getTimeOut();
   /**
-   * <code>string endShift = 3;</code>
+   * <code>string timeOut = 3;</code>
    */
   com.google.protobuf.ByteString
-      getEndShiftBytes();
+      getTimeOutBytes();
 }
