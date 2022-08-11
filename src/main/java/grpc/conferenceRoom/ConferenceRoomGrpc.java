@@ -94,36 +94,36 @@ public final class ConferenceRoomGrpc {
      return getBookConferenceRoomMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyDataRequest,
-      grpc.conferenceRoom.OccupancyDataResponse> getSendOccupancyDataMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.conferenceRoom.LiveOccupancyRequest,
+      grpc.conferenceRoom.LiveOccupancyResponse> getCalculateLiveOccupancyMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "SendOccupancyData",
-      requestType = grpc.conferenceRoom.OccupancyDataRequest.class,
-      responseType = grpc.conferenceRoom.OccupancyDataResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "CalculateLiveOccupancy",
+      requestType = grpc.conferenceRoom.LiveOccupancyRequest.class,
+      responseType = grpc.conferenceRoom.LiveOccupancyResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyDataRequest,
-      grpc.conferenceRoom.OccupancyDataResponse> getSendOccupancyDataMethod() {
-    io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyDataRequest, grpc.conferenceRoom.OccupancyDataResponse> getSendOccupancyDataMethod;
-    if ((getSendOccupancyDataMethod = ConferenceRoomGrpc.getSendOccupancyDataMethod) == null) {
+  public static io.grpc.MethodDescriptor<grpc.conferenceRoom.LiveOccupancyRequest,
+      grpc.conferenceRoom.LiveOccupancyResponse> getCalculateLiveOccupancyMethod() {
+    io.grpc.MethodDescriptor<grpc.conferenceRoom.LiveOccupancyRequest, grpc.conferenceRoom.LiveOccupancyResponse> getCalculateLiveOccupancyMethod;
+    if ((getCalculateLiveOccupancyMethod = ConferenceRoomGrpc.getCalculateLiveOccupancyMethod) == null) {
       synchronized (ConferenceRoomGrpc.class) {
-        if ((getSendOccupancyDataMethod = ConferenceRoomGrpc.getSendOccupancyDataMethod) == null) {
-          ConferenceRoomGrpc.getSendOccupancyDataMethod = getSendOccupancyDataMethod = 
-              io.grpc.MethodDescriptor.<grpc.conferenceRoom.OccupancyDataRequest, grpc.conferenceRoom.OccupancyDataResponse>newBuilder()
+        if ((getCalculateLiveOccupancyMethod = ConferenceRoomGrpc.getCalculateLiveOccupancyMethod) == null) {
+          ConferenceRoomGrpc.getCalculateLiveOccupancyMethod = getCalculateLiveOccupancyMethod = 
+              io.grpc.MethodDescriptor.<grpc.conferenceRoom.LiveOccupancyRequest, grpc.conferenceRoom.LiveOccupancyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "ConferenceRoom", "SendOccupancyData"))
+                  "ConferenceRoom", "CalculateLiveOccupancy"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.conferenceRoom.OccupancyDataRequest.getDefaultInstance()))
+                  grpc.conferenceRoom.LiveOccupancyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.conferenceRoom.OccupancyDataResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new ConferenceRoomMethodDescriptorSupplier("SendOccupancyData"))
+                  grpc.conferenceRoom.LiveOccupancyResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ConferenceRoomMethodDescriptorSupplier("CalculateLiveOccupancy"))
                   .build();
           }
         }
      }
-     return getSendOccupancyDataMethod;
+     return getCalculateLiveOccupancyMethod;
   }
 
   /**
@@ -180,13 +180,13 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Client streaming
-     *Sensor keeps sending the occcupancy data, the server returns the total occupacy data
+     *Bidirectional streaming
+     *Sensor keeps sending how many people enter the conference room , the server keeps returning the total occupancy data
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataRequest> sendOccupancyData(
-        io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataResponse> responseObserver) {
-      return asyncUnimplementedStreamingCall(getSendOccupancyDataMethod(), responseObserver);
+    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyRequest> calculateLiveOccupancy(
+        io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getCalculateLiveOccupancyMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -206,12 +206,12 @@ public final class ConferenceRoomGrpc {
                 grpc.conferenceRoom.BookConferenceRoomResponse>(
                   this, METHODID_BOOK_CONFERENCE_ROOM)))
           .addMethod(
-            getSendOccupancyDataMethod(),
+            getCalculateLiveOccupancyMethod(),
             asyncClientStreamingCall(
               new MethodHandlers<
-                grpc.conferenceRoom.OccupancyDataRequest,
-                grpc.conferenceRoom.OccupancyDataResponse>(
-                  this, METHODID_SEND_OCCUPANCY_DATA)))
+                grpc.conferenceRoom.LiveOccupancyRequest,
+                grpc.conferenceRoom.LiveOccupancyResponse>(
+                  this, METHODID_CALCULATE_LIVE_OCCUPANCY)))
           .build();
     }
   }
@@ -263,14 +263,14 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Client streaming
-     *Sensor keeps sending the occcupancy data, the server returns the total occupacy data
+     *Bidirectional streaming
+     *Sensor keeps sending how many people enter the conference room , the server keeps returning the total occupancy data
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataRequest> sendOccupancyData(
-        io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyRequest> calculateLiveOccupancy(
+        io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyResponse> responseObserver) {
       return asyncClientStreamingCall(
-          getChannel().newCall(getSendOccupancyDataMethod(), getCallOptions()), responseObserver);
+          getChannel().newCall(getCalculateLiveOccupancyMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -355,7 +355,7 @@ public final class ConferenceRoomGrpc {
 
   private static final int METHODID_GET_AVAILABLE_ROOMS = 0;
   private static final int METHODID_BOOK_CONFERENCE_ROOM = 1;
-  private static final int METHODID_SEND_OCCUPANCY_DATA = 2;
+  private static final int METHODID_CALCULATE_LIVE_OCCUPANCY = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -392,9 +392,9 @@ public final class ConferenceRoomGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SEND_OCCUPANCY_DATA:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.sendOccupancyData(
-              (io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyDataResponse>) responseObserver);
+        case METHODID_CALCULATE_LIVE_OCCUPANCY:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.calculateLiveOccupancy(
+              (io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -448,7 +448,7 @@ public final class ConferenceRoomGrpc {
               .setSchemaDescriptor(new ConferenceRoomFileDescriptorSupplier())
               .addMethod(getGetAvailableRoomsMethod())
               .addMethod(getBookConferenceRoomMethod())
-              .addMethod(getSendOccupancyDataMethod())
+              .addMethod(getCalculateLiveOccupancyMethod())
               .build();
         }
       }

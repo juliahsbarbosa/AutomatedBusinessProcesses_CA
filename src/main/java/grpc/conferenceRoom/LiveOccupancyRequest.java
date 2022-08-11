@@ -4,19 +4,19 @@
 package grpc.conferenceRoom;
 
 /**
- * Protobuf type {@code OccupancyDataResponse}
+ * Protobuf type {@code LiveOccupancyRequest}
  */
-public  final class OccupancyDataResponse extends
+public  final class LiveOccupancyRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:OccupancyDataResponse)
-    OccupancyDataResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:LiveOccupancyRequest)
+    LiveOccupancyRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use OccupancyDataResponse.newBuilder() to construct.
-  private OccupancyDataResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use LiveOccupancyRequest.newBuilder() to construct.
+  private LiveOccupancyRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private OccupancyDataResponse() {
-    totalOccupancy_ = 0;
+  private LiveOccupancyRequest() {
+    numPeople_ = 0;
   }
 
   @java.lang.Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OccupancyDataResponse(
+  private LiveOccupancyRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -45,7 +45,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            totalOccupancy_ = input.readInt32();
+            numPeople_ = input.readInt32();
             break;
           }
           default: {
@@ -69,24 +69,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.conferenceRoom.ConferenceRoomService.internal_static_OccupancyDataResponse_descriptor;
+    return grpc.conferenceRoom.ConferenceRoomService.internal_static_LiveOccupancyRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.conferenceRoom.ConferenceRoomService.internal_static_OccupancyDataResponse_fieldAccessorTable
+    return grpc.conferenceRoom.ConferenceRoomService.internal_static_LiveOccupancyRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            grpc.conferenceRoom.OccupancyDataResponse.class, grpc.conferenceRoom.OccupancyDataResponse.Builder.class);
+            grpc.conferenceRoom.LiveOccupancyRequest.class, grpc.conferenceRoom.LiveOccupancyRequest.Builder.class);
   }
 
-  public static final int TOTALOCCUPANCY_FIELD_NUMBER = 1;
-  private int totalOccupancy_;
+  public static final int NUMPEOPLE_FIELD_NUMBER = 1;
+  private int numPeople_;
   /**
-   * <code>int32 totalOccupancy = 1;</code>
+   * <code>int32 numPeople = 1;</code>
    */
-  public int getTotalOccupancy() {
-    return totalOccupancy_;
+  public int getNumPeople() {
+    return numPeople_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,8 +103,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (totalOccupancy_ != 0) {
-      output.writeInt32(1, totalOccupancy_);
+    if (numPeople_ != 0) {
+      output.writeInt32(1, numPeople_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (totalOccupancy_ != 0) {
+    if (numPeople_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, totalOccupancy_);
+        .computeInt32Size(1, numPeople_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -129,14 +129,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof grpc.conferenceRoom.OccupancyDataResponse)) {
+    if (!(obj instanceof grpc.conferenceRoom.LiveOccupancyRequest)) {
       return super.equals(obj);
     }
-    grpc.conferenceRoom.OccupancyDataResponse other = (grpc.conferenceRoom.OccupancyDataResponse) obj;
+    grpc.conferenceRoom.LiveOccupancyRequest other = (grpc.conferenceRoom.LiveOccupancyRequest) obj;
 
     boolean result = true;
-    result = result && (getTotalOccupancy()
-        == other.getTotalOccupancy());
+    result = result && (getNumPeople()
+        == other.getNumPeople());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -148,76 +148,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TOTALOCCUPANCY_FIELD_NUMBER;
-    hash = (53 * hash) + getTotalOccupancy();
+    hash = (37 * hash) + NUMPEOPLE_FIELD_NUMBER;
+    hash = (53 * hash) + getNumPeople();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(byte[] data)
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(java.io.InputStream input)
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseDelimitedFrom(java.io.InputStream input)
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseDelimitedFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.conferenceRoom.OccupancyDataResponse parseFrom(
+  public static grpc.conferenceRoom.LiveOccupancyRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -230,7 +230,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(grpc.conferenceRoom.OccupancyDataResponse prototype) {
+  public static Builder newBuilder(grpc.conferenceRoom.LiveOccupancyRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -246,26 +246,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code OccupancyDataResponse}
+   * Protobuf type {@code LiveOccupancyRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:OccupancyDataResponse)
-      grpc.conferenceRoom.OccupancyDataResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:LiveOccupancyRequest)
+      grpc.conferenceRoom.LiveOccupancyRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.conferenceRoom.ConferenceRoomService.internal_static_OccupancyDataResponse_descriptor;
+      return grpc.conferenceRoom.ConferenceRoomService.internal_static_LiveOccupancyRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.conferenceRoom.ConferenceRoomService.internal_static_OccupancyDataResponse_fieldAccessorTable
+      return grpc.conferenceRoom.ConferenceRoomService.internal_static_LiveOccupancyRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              grpc.conferenceRoom.OccupancyDataResponse.class, grpc.conferenceRoom.OccupancyDataResponse.Builder.class);
+              grpc.conferenceRoom.LiveOccupancyRequest.class, grpc.conferenceRoom.LiveOccupancyRequest.Builder.class);
     }
 
-    // Construct using grpc.conferenceRoom.OccupancyDataResponse.newBuilder()
+    // Construct using grpc.conferenceRoom.LiveOccupancyRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -283,7 +283,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      totalOccupancy_ = 0;
+      numPeople_ = 0;
 
       return this;
     }
@@ -291,17 +291,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.conferenceRoom.ConferenceRoomService.internal_static_OccupancyDataResponse_descriptor;
+      return grpc.conferenceRoom.ConferenceRoomService.internal_static_LiveOccupancyRequest_descriptor;
     }
 
     @java.lang.Override
-    public grpc.conferenceRoom.OccupancyDataResponse getDefaultInstanceForType() {
-      return grpc.conferenceRoom.OccupancyDataResponse.getDefaultInstance();
+    public grpc.conferenceRoom.LiveOccupancyRequest getDefaultInstanceForType() {
+      return grpc.conferenceRoom.LiveOccupancyRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public grpc.conferenceRoom.OccupancyDataResponse build() {
-      grpc.conferenceRoom.OccupancyDataResponse result = buildPartial();
+    public grpc.conferenceRoom.LiveOccupancyRequest build() {
+      grpc.conferenceRoom.LiveOccupancyRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -309,9 +309,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public grpc.conferenceRoom.OccupancyDataResponse buildPartial() {
-      grpc.conferenceRoom.OccupancyDataResponse result = new grpc.conferenceRoom.OccupancyDataResponse(this);
-      result.totalOccupancy_ = totalOccupancy_;
+    public grpc.conferenceRoom.LiveOccupancyRequest buildPartial() {
+      grpc.conferenceRoom.LiveOccupancyRequest result = new grpc.conferenceRoom.LiveOccupancyRequest(this);
+      result.numPeople_ = numPeople_;
       onBuilt();
       return result;
     }
@@ -350,18 +350,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof grpc.conferenceRoom.OccupancyDataResponse) {
-        return mergeFrom((grpc.conferenceRoom.OccupancyDataResponse)other);
+      if (other instanceof grpc.conferenceRoom.LiveOccupancyRequest) {
+        return mergeFrom((grpc.conferenceRoom.LiveOccupancyRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(grpc.conferenceRoom.OccupancyDataResponse other) {
-      if (other == grpc.conferenceRoom.OccupancyDataResponse.getDefaultInstance()) return this;
-      if (other.getTotalOccupancy() != 0) {
-        setTotalOccupancy(other.getTotalOccupancy());
+    public Builder mergeFrom(grpc.conferenceRoom.LiveOccupancyRequest other) {
+      if (other == grpc.conferenceRoom.LiveOccupancyRequest.getDefaultInstance()) return this;
+      if (other.getNumPeople() != 0) {
+        setNumPeople(other.getNumPeople());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -378,11 +378,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      grpc.conferenceRoom.OccupancyDataResponse parsedMessage = null;
+      grpc.conferenceRoom.LiveOccupancyRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (grpc.conferenceRoom.OccupancyDataResponse) e.getUnfinishedMessage();
+        parsedMessage = (grpc.conferenceRoom.LiveOccupancyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -392,28 +392,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int totalOccupancy_ ;
+    private int numPeople_ ;
     /**
-     * <code>int32 totalOccupancy = 1;</code>
+     * <code>int32 numPeople = 1;</code>
      */
-    public int getTotalOccupancy() {
-      return totalOccupancy_;
+    public int getNumPeople() {
+      return numPeople_;
     }
     /**
-     * <code>int32 totalOccupancy = 1;</code>
+     * <code>int32 numPeople = 1;</code>
      */
-    public Builder setTotalOccupancy(int value) {
+    public Builder setNumPeople(int value) {
       
-      totalOccupancy_ = value;
+      numPeople_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 totalOccupancy = 1;</code>
+     * <code>int32 numPeople = 1;</code>
      */
-    public Builder clearTotalOccupancy() {
+    public Builder clearNumPeople() {
       
-      totalOccupancy_ = 0;
+      numPeople_ = 0;
       onChanged();
       return this;
     }
@@ -430,41 +430,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:OccupancyDataResponse)
+    // @@protoc_insertion_point(builder_scope:LiveOccupancyRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:OccupancyDataResponse)
-  private static final grpc.conferenceRoom.OccupancyDataResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:LiveOccupancyRequest)
+  private static final grpc.conferenceRoom.LiveOccupancyRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new grpc.conferenceRoom.OccupancyDataResponse();
+    DEFAULT_INSTANCE = new grpc.conferenceRoom.LiveOccupancyRequest();
   }
 
-  public static grpc.conferenceRoom.OccupancyDataResponse getDefaultInstance() {
+  public static grpc.conferenceRoom.LiveOccupancyRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<OccupancyDataResponse>
-      PARSER = new com.google.protobuf.AbstractParser<OccupancyDataResponse>() {
+  private static final com.google.protobuf.Parser<LiveOccupancyRequest>
+      PARSER = new com.google.protobuf.AbstractParser<LiveOccupancyRequest>() {
     @java.lang.Override
-    public OccupancyDataResponse parsePartialFrom(
+    public LiveOccupancyRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OccupancyDataResponse(input, extensionRegistry);
+      return new LiveOccupancyRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<OccupancyDataResponse> parser() {
+  public static com.google.protobuf.Parser<LiveOccupancyRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<OccupancyDataResponse> getParserForType() {
+  public com.google.protobuf.Parser<LiveOccupancyRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public grpc.conferenceRoom.OccupancyDataResponse getDefaultInstanceForType() {
+  public grpc.conferenceRoom.LiveOccupancyRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

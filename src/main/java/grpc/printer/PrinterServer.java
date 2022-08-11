@@ -3,15 +3,16 @@ package grpc.printer;
 
 //Required java packages
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
-
 
 //Required grpc packages for the server
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-import grpc.printer.PrintsAllDocumentsRequest;
 //ImplBase class that was generated from the proto file
 import grpc.printer.PrinterGrpc.PrinterImplBase;
 
@@ -42,15 +43,51 @@ public class PrinterServer extends PrinterImplBase {
 			
 	}
 
-	// RPC methods that have been defined in the Printer.proto
-	//Bidirectional RPC
 	@Override
-	public StreamObserver<PrintsAllDocumentsRequest> printsAllDocuments(
-			StreamObserver<PrintsAllDocumentsResponse> responseObserver) {
-		ArrayList<String> documentList = new ArrayList<String>();
-		return null;
+	public StreamObserver<scanDocumentRequest> scanDocument(StreamObserver<scanDocumentResponse> responseObserver) {
+		return new StreamObserver<scanDocumentRequest>() {
+			
+			ArrayList<scanDocumentRequest> documentList = new ArrayList<>();
+			
+			@Override
+			public void onNext(scanDocumentRequest request) {
+
+				System.out.println("Received scanned documents: "
+				+"/nDocument Name: " + request.getDocumentName() 
+				+ "Number of Pages: " + request.getNumPages());
+				
+				documentList.add(request);
+			}
+
+			@Override
+			public void onError(Throwable t) {
+				
+			}
+
+			@Override
+			public void onCompleted() {
+				  scanDocumentResponse response = scanDocumentResponse.newBuilder().setMessage("Documents: \n" 
+				  + documentList.size() 
+				  + " \nwere scanned successufully").build();
+				
+				responseObserver.onNext(response);
+
+				responseObserver.onCompleted();
+
+			}
+
+		};
 
 	}
+
+	//Client Streaming RPC
+
+	
+	
+	
+	
+
+	
 
 	
 	

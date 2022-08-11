@@ -3,8 +3,8 @@
 
 package grpc.printer;
 
-public interface PrintsAllDocumentsRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:PrintsAllDocumentsRequest)
+public interface scanDocumentRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:scanDocumentRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,7 +18,7 @@ public interface PrintsAllDocumentsRequestOrBuilder extends
       getDocumentNameBytes();
 
   /**
-   * <code>int32 copies = 2;</code>
+   * <code>int32 numPages = 2;</code>
    */
-  int getCopies();
+  int getNumPages();
 }

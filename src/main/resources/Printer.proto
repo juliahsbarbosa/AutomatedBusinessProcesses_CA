@@ -6,20 +6,19 @@ option java_outer_classname = "PrinterService";
 
 // Defining the service containing methods
 service Printer {
-	//Bidirectional rpc
-	//Prints all the documents on queue
-	rpc PrintsAllDocuments (stream PrintsAllDocumentsRequest) returns (stream PrintsAllDocumentsResponse) {}
+	//Client Streaming rpc
+	//Client scans a stream of documents, server returns confirmation message
+	rpc ScanDocument (stream scanDocumentRequest) returns ( scanDocumentResponse) {}
 }
 
 // Defining the data types
-message PrintsAllDocumentsRequest {
+message scanDocumentRequest {
 	string documentName = 1;
-	int32 copies = 2;
+	int32 numPages = 2;
 }
 
-message PrintsAllDocumentsResponse {
-	string documentName = 1;
-	int32 copies = 2;
+message scanDocumentResponse {
+	string message = 1;
 }
 
 

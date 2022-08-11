@@ -66,8 +66,6 @@ public class ClockInOutServer extends ClockinImplBase {
 	//Unary RPC
 	@Override
 	public void clockOut(ClockoutRequest request, StreamObserver<ClockoutResponse> responseObserver) {
-		System.out.println("Clocking in"); 
-		
 		int employeeId = request.getEmployeeId();
 		String dateOut = request.getDateOut();
 		String timeOut = request.getTimeOut();

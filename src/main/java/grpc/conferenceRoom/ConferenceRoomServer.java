@@ -50,35 +50,23 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 	@Override
 	public void getAvailableRooms(GetAvailableRoomsRequest request,
 			StreamObserver<GetAvailableRoomsResponse> responseObserver) {
-		System.out.println("Available Conference Rooms Server is starting");
+		System.out.println("------------Available Conference Rooms' Server is starting--------------");
 		
 		//now we can read in the request coming from the client
 		String date = request.getDate();
+		String timeslot = request.getTimeslot();
 
-		System.out.println("The ids of the conference rooms available for booking on " + date + " are presented below: \n" );
+		System.out.println("The conference rooms available on " + date + " at " + timeslot + "are : \n" );
 		
-		//Call method	
+		//Call method - stream of data	
 		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder()
-							.setConferenceRoomId(11).build());		
-		
-		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder()
-				.setConferenceRoomId(7).build());	
+							.setConferenceRoomName("Conference Room 2").build());	
 		
 		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder()
-				.setConferenceRoomId(3).build());	
+				.setConferenceRoomName("Conference Room 7").build());	
 		
 		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder()
-				.setConferenceRoomId(1).build());	
-		
-		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder()
-				.setConferenceRoomId(2).build());	
-		
-		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder()
-				.setConferenceRoomId(10).build());	
-		
-		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder()
-				.setConferenceRoomId(5).build());	
-		
+				.setConferenceRoomName("Conference Room 3").build());	
 		
 		//End the call
 		responseObserver.onCompleted();
@@ -90,33 +78,31 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 			StreamObserver<BookConferenceRoomResponse> responseObserver) {
 		String date = request.getDate();
 		String timeslot = request.getTimeslot();
-		int numParticipants = request.getNumParticipants();
-		int conferenceRoomId = request.getConferenceRoomId();
+		String conferenceRoomName = request.getConferenceRoomName();
 		 
 		
 		responseObserver.onNext(BookConferenceRoomResponse.newBuilder()
 				.setMessage("The details of the conference room you booked are: "
-					+"\n Conference Room Number : " + conferenceRoomId 
+					+"\n Conference Room Number : " + conferenceRoomName
 					+ "\n Date : " + date
-					+ "\n Time : " + timeslot 
-					+ "\n Number of Participants : " + numParticipants).build());
+					+ "\n Time : " + timeslot).build());
 					
 		//End the call
 		responseObserver.onCompleted();
 		
 	}
 	
-	//Client streaming RPC
+	//Bidirectional RPC	
 	@Override
-	public StreamObserver<OccupancyDataRequest> sendOccupancyData(
-			StreamObserver<OccupancyDataResponse> responseObserver) {
-			return new StreamObserver<OccupancyDataRequest>() {
+	public StreamObserver<LiveOccupancyRequest> calculateLiveOccupancy(
+			StreamObserver<LiveOccupancyResponse> responseObserver) {
+		return new StreamObserver<LiveOccupancyRequest>() {
 			
 			int totalOccupancy = 0;
 						
-			public void onNext(OccupancyDataRequest numOccupancy) {
+			public void onNext(LiveOccupancyRequest numPeople) {
 				// Compute the total people occupancy by summing the streamed data
-				System.out.println("receive -> " + numOccupancy.getNumOccupancy());
+				System.out.println("receive -> " + numPeople.getNumPeople());
 			}
 
 			@Override
@@ -130,10 +116,11 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 			public void onCompleted() {
 				// Preparing and sending the reply for the client. Here, response is build and with the value (length) computed by above logic.
 				 // Here, response is sent once the client is done with sending the stream.
-				OccupancyDataResponse res = OccupancyDataResponse.newBuilder().setTotalOccupancy(totalOccupancy).build();
+				LiveOccupancyResponse res = LiveOccupancyResponse.newBuilder().setTotalOccupancy(totalOccupancy).build();
 		          responseObserver.onNext(res);
 		          responseObserver.onCompleted();
 			}
 		};
 	}
+
 }

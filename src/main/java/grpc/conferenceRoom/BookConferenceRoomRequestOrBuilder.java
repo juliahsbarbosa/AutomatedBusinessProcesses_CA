@@ -28,12 +28,12 @@ public interface BookConferenceRoomRequestOrBuilder extends
       getTimeslotBytes();
 
   /**
-   * <code>int32 numParticipants = 3;</code>
+   * <code>string conferenceRoomName = 4;</code>
    */
-  int getNumParticipants();
-
+  java.lang.String getConferenceRoomName();
   /**
-   * <code>int32 conferenceRoomId = 4;</code>
+   * <code>string conferenceRoomName = 4;</code>
    */
-  int getConferenceRoomId();
+  com.google.protobuf.ByteString
+      getConferenceRoomNameBytes();
 }

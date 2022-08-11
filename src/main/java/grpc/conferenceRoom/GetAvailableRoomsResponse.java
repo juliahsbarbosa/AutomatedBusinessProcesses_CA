@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetAvailableRoomsResponse() {
-    conferenceRoomId_ = 0;
+    conferenceRoomName_ = "";
   }
 
   @java.lang.Override
@@ -43,9 +43,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 16: {
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            conferenceRoomId_ = input.readInt32();
+            conferenceRoomName_ = s;
             break;
           }
           default: {
@@ -80,13 +81,38 @@ private static final long serialVersionUID = 0L;
             grpc.conferenceRoom.GetAvailableRoomsResponse.class, grpc.conferenceRoom.GetAvailableRoomsResponse.Builder.class);
   }
 
-  public static final int CONFERENCEROOMID_FIELD_NUMBER = 2;
-  private int conferenceRoomId_;
+  public static final int CONFERENCEROOMNAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object conferenceRoomName_;
   /**
-   * <code>int32 conferenceRoomId = 2;</code>
+   * <code>string conferenceRoomName = 2;</code>
    */
-  public int getConferenceRoomId() {
-    return conferenceRoomId_;
+  public java.lang.String getConferenceRoomName() {
+    java.lang.Object ref = conferenceRoomName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      conferenceRoomName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string conferenceRoomName = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getConferenceRoomNameBytes() {
+    java.lang.Object ref = conferenceRoomName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      conferenceRoomName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -103,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (conferenceRoomId_ != 0) {
-      output.writeInt32(2, conferenceRoomId_);
+    if (!getConferenceRoomNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, conferenceRoomName_);
     }
     unknownFields.writeTo(output);
   }
@@ -115,9 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (conferenceRoomId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, conferenceRoomId_);
+    if (!getConferenceRoomNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, conferenceRoomName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -135,8 +160,8 @@ private static final long serialVersionUID = 0L;
     grpc.conferenceRoom.GetAvailableRoomsResponse other = (grpc.conferenceRoom.GetAvailableRoomsResponse) obj;
 
     boolean result = true;
-    result = result && (getConferenceRoomId()
-        == other.getConferenceRoomId());
+    result = result && getConferenceRoomName()
+        .equals(other.getConferenceRoomName());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -148,8 +173,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + CONFERENCEROOMID_FIELD_NUMBER;
-    hash = (53 * hash) + getConferenceRoomId();
+    hash = (37 * hash) + CONFERENCEROOMNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getConferenceRoomName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -283,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      conferenceRoomId_ = 0;
+      conferenceRoomName_ = "";
 
       return this;
     }
@@ -311,7 +336,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.conferenceRoom.GetAvailableRoomsResponse buildPartial() {
       grpc.conferenceRoom.GetAvailableRoomsResponse result = new grpc.conferenceRoom.GetAvailableRoomsResponse(this);
-      result.conferenceRoomId_ = conferenceRoomId_;
+      result.conferenceRoomName_ = conferenceRoomName_;
       onBuilt();
       return result;
     }
@@ -360,8 +385,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.conferenceRoom.GetAvailableRoomsResponse other) {
       if (other == grpc.conferenceRoom.GetAvailableRoomsResponse.getDefaultInstance()) return this;
-      if (other.getConferenceRoomId() != 0) {
-        setConferenceRoomId(other.getConferenceRoomId());
+      if (!other.getConferenceRoomName().isEmpty()) {
+        conferenceRoomName_ = other.conferenceRoomName_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -392,28 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int conferenceRoomId_ ;
+    private java.lang.Object conferenceRoomName_ = "";
     /**
-     * <code>int32 conferenceRoomId = 2;</code>
+     * <code>string conferenceRoomName = 2;</code>
      */
-    public int getConferenceRoomId() {
-      return conferenceRoomId_;
+    public java.lang.String getConferenceRoomName() {
+      java.lang.Object ref = conferenceRoomName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        conferenceRoomName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 conferenceRoomId = 2;</code>
+     * <code>string conferenceRoomName = 2;</code>
      */
-    public Builder setConferenceRoomId(int value) {
-      
-      conferenceRoomId_ = value;
+    public com.google.protobuf.ByteString
+        getConferenceRoomNameBytes() {
+      java.lang.Object ref = conferenceRoomName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        conferenceRoomName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string conferenceRoomName = 2;</code>
+     */
+    public Builder setConferenceRoomName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      conferenceRoomName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 conferenceRoomId = 2;</code>
+     * <code>string conferenceRoomName = 2;</code>
      */
-    public Builder clearConferenceRoomId() {
+    public Builder clearConferenceRoomName() {
       
-      conferenceRoomId_ = 0;
+      conferenceRoomName_ = getDefaultInstance().getConferenceRoomName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string conferenceRoomName = 2;</code>
+     */
+    public Builder setConferenceRoomNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      conferenceRoomName_ = value;
       onChanged();
       return this;
     }

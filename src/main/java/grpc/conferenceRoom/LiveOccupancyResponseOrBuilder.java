@@ -3,8 +3,8 @@
 
 package grpc.conferenceRoom;
 
-public interface OccupancyDataResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:OccupancyDataResponse)
+public interface LiveOccupancyResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:LiveOccupancyResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
