@@ -3,8 +3,8 @@
 
 package grpc.conferenceRoom;
 
-public interface LiveOccupancyRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:LiveOccupancyRequest)
+public interface OccupancyRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:OccupancyRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -13,6 +13,9 @@ import java.util.logging.Logger;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import grpc.printer.PrintAllDocumentsRequest;
+import grpc.printer.PrintAllDocumentsResponse;
+
 //ImplBase class that was generated from the proto file
 import grpc.printer.PrinterGrpc.PrinterImplBase;
 
@@ -44,51 +47,67 @@ public class PrinterServer extends PrinterImplBase {
 	}
 
 	@Override
-	public StreamObserver<scanDocumentRequest> scanDocument(StreamObserver<scanDocumentResponse> responseObserver) {
-		return new StreamObserver<scanDocumentRequest>() {
+	public StreamObserver<PrintAllDocumentsRequest> printAllDocuments(
+			StreamObserver<PrintAllDocumentsResponse> responseObserver) {
+		return new StreamObserver<PrintAllDocumentsRequest>() {
+//			//kgs of apple sold weekly in the last 4 weeks are saved in an ArrayList data structure
+//			ArrayList<String> messageList = new ArrayList<String>();
+//			
+//			//now we must implement 3 abstract methods of the StreamObserver class: onNext(), onError() and onCompleted()
+//			
+//			//first, we implement onNext()
+//			//onNext() method specifies the required actions when the server receives all incoming messages from the client
+
 			
-			ArrayList<scanDocumentRequest> documentList = new ArrayList<>();
+			
 			
 			@Override
-			public void onNext(scanDocumentRequest request) {
+			public void onNext(PrintAllDocumentsRequest requests) {
+				//incoming values weekly apple sales in kg are added into the ArrayList
+				System.out.println("Receiving all the documents for printing: " + requests.getDocumentName());
 
-				System.out.println("Received scanned documents: "
-				+"/nDocument Name: " + request.getDocumentName() 
-				+ "Number of Pages: " + request.getNumPages());
-				
-				documentList.add(request);
 			}
-
 			@Override
 			public void onError(Throwable t) {
+				System.out.println("An error occured");
+				t.printStackTrace();
 				
 			}
 
+			//here we create the response when client finished to stream incoming messages
 			@Override
 			public void onCompleted() {
-				  scanDocumentResponse response = scanDocumentResponse.newBuilder().setMessage("Documents: \n" 
-				  + documentList.size() 
-				  + " \nwere scanned successufully").build();
 				
-				responseObserver.onNext(response);
+				
+				String doc1 = "1 was printed successufuly";
+				String doc2 = "2 was printed successufuly";
+				String doc3 = "3 was printed successufuly";
+
+			
+				//now we can build the responses the server will send back to the client						
+				PrintAllDocumentsResponse.Builder responses = PrintAllDocumentsResponse.newBuilder();
+				
+				//4 responses are built, showing the sales values of apple over 4 weeks
+				responses.setMessage(doc1).build();	
+				responseObserver.onNext(responses.build());
+					
+				responses.setMessage(doc2).build();	
+				responseObserver.onNext(responses.build());
+					
+				responses.setMessage(doc3).build();	
+				responseObserver.onNext(responses.build());
+			
+				
+				System.out.println("Document: " + doc1 + "\nDocument: " + doc2 + "\nDocument: " + doc3);						
+			
+				System.out.println("Server completed!");
 
 				responseObserver.onCompleted();
 
 			}
-
+		
 		};
-
+		
 	}
+}	
 
-	//Client Streaming RPC
-
-	
-	
-	
-	
-
-	
-
-	
-	
-}

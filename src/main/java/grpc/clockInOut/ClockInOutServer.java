@@ -51,6 +51,7 @@ public class ClockInOutServer extends ClockinImplBase {
 		String dateIn = request.getDateIn();
 		String timeIn = request.getTimeIn();
 
+
 	
 		//Send back to the client
 		if(employeeId < 0 || employeeId > 10000) {

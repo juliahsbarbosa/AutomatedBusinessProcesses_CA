@@ -94,36 +94,36 @@ public final class ConferenceRoomGrpc {
      return getBookConferenceRoomMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<grpc.conferenceRoom.LiveOccupancyRequest,
-      grpc.conferenceRoom.LiveOccupancyResponse> getCalculateLiveOccupancyMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyRequest,
+      grpc.conferenceRoom.OccupancyResponse> getCalculateTotalOccupancyMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "CalculateLiveOccupancy",
-      requestType = grpc.conferenceRoom.LiveOccupancyRequest.class,
-      responseType = grpc.conferenceRoom.LiveOccupancyResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "CalculateTotalOccupancy",
+      requestType = grpc.conferenceRoom.OccupancyRequest.class,
+      responseType = grpc.conferenceRoom.OccupancyResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<grpc.conferenceRoom.LiveOccupancyRequest,
-      grpc.conferenceRoom.LiveOccupancyResponse> getCalculateLiveOccupancyMethod() {
-    io.grpc.MethodDescriptor<grpc.conferenceRoom.LiveOccupancyRequest, grpc.conferenceRoom.LiveOccupancyResponse> getCalculateLiveOccupancyMethod;
-    if ((getCalculateLiveOccupancyMethod = ConferenceRoomGrpc.getCalculateLiveOccupancyMethod) == null) {
+  public static io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyRequest,
+      grpc.conferenceRoom.OccupancyResponse> getCalculateTotalOccupancyMethod() {
+    io.grpc.MethodDescriptor<grpc.conferenceRoom.OccupancyRequest, grpc.conferenceRoom.OccupancyResponse> getCalculateTotalOccupancyMethod;
+    if ((getCalculateTotalOccupancyMethod = ConferenceRoomGrpc.getCalculateTotalOccupancyMethod) == null) {
       synchronized (ConferenceRoomGrpc.class) {
-        if ((getCalculateLiveOccupancyMethod = ConferenceRoomGrpc.getCalculateLiveOccupancyMethod) == null) {
-          ConferenceRoomGrpc.getCalculateLiveOccupancyMethod = getCalculateLiveOccupancyMethod = 
-              io.grpc.MethodDescriptor.<grpc.conferenceRoom.LiveOccupancyRequest, grpc.conferenceRoom.LiveOccupancyResponse>newBuilder()
+        if ((getCalculateTotalOccupancyMethod = ConferenceRoomGrpc.getCalculateTotalOccupancyMethod) == null) {
+          ConferenceRoomGrpc.getCalculateTotalOccupancyMethod = getCalculateTotalOccupancyMethod = 
+              io.grpc.MethodDescriptor.<grpc.conferenceRoom.OccupancyRequest, grpc.conferenceRoom.OccupancyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "ConferenceRoom", "CalculateLiveOccupancy"))
+                  "ConferenceRoom", "CalculateTotalOccupancy"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.conferenceRoom.LiveOccupancyRequest.getDefaultInstance()))
+                  grpc.conferenceRoom.OccupancyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.conferenceRoom.LiveOccupancyResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new ConferenceRoomMethodDescriptorSupplier("CalculateLiveOccupancy"))
+                  grpc.conferenceRoom.OccupancyResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ConferenceRoomMethodDescriptorSupplier("CalculateTotalOccupancy"))
                   .build();
           }
         }
      }
-     return getCalculateLiveOccupancyMethod;
+     return getCalculateTotalOccupancyMethod;
   }
 
   /**
@@ -158,7 +158,7 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Server stream rpc
+     *Server streaming RPC
      *Client requests available conference rooms, server returns a stream of available rooms
      * </pre>
      */
@@ -169,7 +169,7 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Unary rpc
+     *Unary RPC
      *Client books a conference room, server returns confirmation message
      * </pre>
      */
@@ -180,13 +180,13 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Bidirectional streaming
-     *Sensor keeps sending how many people enter the conference room , the server keeps returning the total occupancy data
+     *Client streaming RPC
+     *Sensor keeps sending how many people enter the conference room , the server returns the total occupancy data
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyRequest> calculateLiveOccupancy(
-        io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyResponse> responseObserver) {
-      return asyncUnimplementedStreamingCall(getCalculateLiveOccupancyMethod(), responseObserver);
+    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyRequest> calculateTotalOccupancy(
+        io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getCalculateTotalOccupancyMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -206,12 +206,12 @@ public final class ConferenceRoomGrpc {
                 grpc.conferenceRoom.BookConferenceRoomResponse>(
                   this, METHODID_BOOK_CONFERENCE_ROOM)))
           .addMethod(
-            getCalculateLiveOccupancyMethod(),
+            getCalculateTotalOccupancyMethod(),
             asyncClientStreamingCall(
               new MethodHandlers<
-                grpc.conferenceRoom.LiveOccupancyRequest,
-                grpc.conferenceRoom.LiveOccupancyResponse>(
-                  this, METHODID_CALCULATE_LIVE_OCCUPANCY)))
+                grpc.conferenceRoom.OccupancyRequest,
+                grpc.conferenceRoom.OccupancyResponse>(
+                  this, METHODID_CALCULATE_TOTAL_OCCUPANCY)))
           .build();
     }
   }
@@ -239,7 +239,7 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Server stream rpc
+     *Server streaming RPC
      *Client requests available conference rooms, server returns a stream of available rooms
      * </pre>
      */
@@ -251,7 +251,7 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Unary rpc
+     *Unary RPC
      *Client books a conference room, server returns confirmation message
      * </pre>
      */
@@ -263,14 +263,14 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Bidirectional streaming
-     *Sensor keeps sending how many people enter the conference room , the server keeps returning the total occupancy data
+     *Client streaming RPC
+     *Sensor keeps sending how many people enter the conference room , the server returns the total occupancy data
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyRequest> calculateLiveOccupancy(
-        io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyRequest> calculateTotalOccupancy(
+        io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyResponse> responseObserver) {
       return asyncClientStreamingCall(
-          getChannel().newCall(getCalculateLiveOccupancyMethod(), getCallOptions()), responseObserver);
+          getChannel().newCall(getCalculateTotalOccupancyMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -297,7 +297,7 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Server stream rpc
+     *Server streaming RPC
      *Client requests available conference rooms, server returns a stream of available rooms
      * </pre>
      */
@@ -309,7 +309,7 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Unary rpc
+     *Unary RPC
      *Client books a conference room, server returns confirmation message
      * </pre>
      */
@@ -342,7 +342,7 @@ public final class ConferenceRoomGrpc {
 
     /**
      * <pre>
-     *Unary rpc
+     *Unary RPC
      *Client books a conference room, server returns confirmation message
      * </pre>
      */
@@ -355,7 +355,7 @@ public final class ConferenceRoomGrpc {
 
   private static final int METHODID_GET_AVAILABLE_ROOMS = 0;
   private static final int METHODID_BOOK_CONFERENCE_ROOM = 1;
-  private static final int METHODID_CALCULATE_LIVE_OCCUPANCY = 2;
+  private static final int METHODID_CALCULATE_TOTAL_OCCUPANCY = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -392,9 +392,9 @@ public final class ConferenceRoomGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_CALCULATE_LIVE_OCCUPANCY:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.calculateLiveOccupancy(
-              (io.grpc.stub.StreamObserver<grpc.conferenceRoom.LiveOccupancyResponse>) responseObserver);
+        case METHODID_CALCULATE_TOTAL_OCCUPANCY:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.calculateTotalOccupancy(
+              (io.grpc.stub.StreamObserver<grpc.conferenceRoom.OccupancyResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -448,7 +448,7 @@ public final class ConferenceRoomGrpc {
               .setSchemaDescriptor(new ConferenceRoomFileDescriptorSupplier())
               .addMethod(getGetAvailableRoomsMethod())
               .addMethod(getBookConferenceRoomMethod())
-              .addMethod(getCalculateLiveOccupancyMethod())
+              .addMethod(getCalculateTotalOccupancyMethod())
               .build();
         }
       }

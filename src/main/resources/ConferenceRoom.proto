@@ -7,17 +7,17 @@ option java_outer_classname = "ConferenceRoomService";
 // Defining the service containing methods
 service ConferenceRoom {
 
-	//Server stream rpc
+	//Server streaming RPC
 	//Client requests available conference rooms, server returns a stream of available rooms
 	rpc GetAvailableRooms (GetAvailableRoomsRequest) returns (stream GetAvailableRoomsResponse) {}
 
-	//Unary rpc
+	//Unary RPC
 	//Client books a conference room, server returns confirmation message
 	rpc BookConferenceRoom (BookConferenceRoomRequest) returns (BookConferenceRoomResponse) {}
 
-	//Bidirectional streaming
-	//Sensor keeps sending how many people enter the conference room , the server keeps returning the total occupancy data
-	rpc CalculateLiveOccupancy (stream LiveOccupancyRequest) returns (LiveOccupancyResponse) {}
+	//Client streaming RPC
+	//Sensor keeps sending how many people enter the conference room , the server returns the total occupancy data
+	rpc CalculateTotalOccupancy (stream OccupancyRequest) returns (OccupancyResponse) {}
 }
 
 // Defining the data types
@@ -40,11 +40,11 @@ message BookConferenceRoomResponse {
 	string message = 1;
 }
 
-message LiveOccupancyRequest {
+message OccupancyRequest {
 	int32 numPeople = 1;
 }
 
-message LiveOccupancyResponse {
+message OccupancyResponse {
 	int32 totalOccupancy = 1;
 
 }

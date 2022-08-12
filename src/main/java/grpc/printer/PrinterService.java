@@ -15,15 +15,15 @@ public final class PrinterService {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_scanDocumentRequest_descriptor;
+    internal_static_PrintAllDocumentsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_scanDocumentRequest_fieldAccessorTable;
+      internal_static_PrintAllDocumentsRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_scanDocumentResponse_descriptor;
+    internal_static_PrintAllDocumentsResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_scanDocumentResponse_fieldAccessorTable;
+      internal_static_PrintAllDocumentsResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,12 +33,13 @@ public final class PrinterService {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rPrinter.proto\"=\n\023scanDocumentRequest\022\024" +
-      "\n\014documentName\030\001 \001(\t\022\020\n\010numPages\030\002 \001(\005\"\'" +
-      "\n\024scanDocumentResponse\022\017\n\007message\030\001 \001(\t2" +
-      "J\n\007Printer\022?\n\014ScanDocument\022\024.scanDocumen" +
-      "tRequest\032\025.scanDocumentResponse\"\000(\001B \n\014g" +
-      "rpc.printerB\016PrinterServiceP\001b\006proto3"
+      "\n\rPrinter.proto\"0\n\030PrintAllDocumentsRequ" +
+      "est\022\024\n\014documentName\030\001 \001(\t\",\n\031PrintAllDoc" +
+      "umentsResponse\022\017\n\007message\030\001 \001(\t2[\n\007Print" +
+      "er\022P\n\021PrintAllDocuments\022\031.PrintAllDocume" +
+      "ntsRequest\032\032.PrintAllDocumentsResponse\"\000" +
+      "(\0010\001B \n\014grpc.printerB\016PrinterServiceP\001b\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -52,17 +53,17 @@ public final class PrinterService {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_scanDocumentRequest_descriptor =
+    internal_static_PrintAllDocumentsRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_scanDocumentRequest_fieldAccessorTable = new
+    internal_static_PrintAllDocumentsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_scanDocumentRequest_descriptor,
-        new java.lang.String[] { "DocumentName", "NumPages", });
-    internal_static_scanDocumentResponse_descriptor =
+        internal_static_PrintAllDocumentsRequest_descriptor,
+        new java.lang.String[] { "DocumentName", });
+    internal_static_PrintAllDocumentsResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_scanDocumentResponse_fieldAccessorTable = new
+    internal_static_PrintAllDocumentsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_scanDocumentResponse_descriptor,
+        internal_static_PrintAllDocumentsResponse_descriptor,
         new java.lang.String[] { "Message", });
   }
 
