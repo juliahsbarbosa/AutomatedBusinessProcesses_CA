@@ -3,8 +3,6 @@ package grpc.conferenceRoom;
 
 // Required java packages 
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.Random;
 import java.util.logging.Logger;
 
 //Required grpc packages for the server 
@@ -25,12 +23,13 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 		// Instance of server class definition
 		ConferenceRoomServer crServer = new ConferenceRoomServer();
 
-		// Service 2 (ConferenceRoom) port number definition, where server will be
-		// listening to clients
+		// Service 2 (ConferenceRoom) port number definition, where server will be listening to clients
 		int port = 50052;
 
 		// Create a server instance defined with the port
-		Server server = ServerBuilder.forPort(port).addService(crServer).build() // Build the server
+		Server server = ServerBuilder.forPort(port)
+				.addService(crServer)
+				.build() // Build the server
 				.start(); // Start the server
 
 		// Show on the server console that server has started
@@ -47,18 +46,14 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 	@Override
 	public void getAvailableRooms(GetAvailableRoomsRequest request,
 			StreamObserver<GetAvailableRoomsResponse> responseObserver) {
-
-		// now we can read in the request coming from the client
-		String date = request.getDate();
-		String timeslot = request.getTimeslot();
-
-		// Call method - stream of data
+		
+		// Call method - Stream of data
 		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder().setConferenceRoomName("Conference Room 2").build());
 
 		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder().setConferenceRoomName("Conference Room 7").build());
 
 		responseObserver.onNext(GetAvailableRoomsResponse.newBuilder().setConferenceRoomName("Conference Room 3").build());
-
+		
 		// End the call
 		responseObserver.onCompleted();
 	}
@@ -71,8 +66,10 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 		String timeslot = request.getTimeslot();
 		String conferenceRoomName = request.getConferenceRoomName();
 
+		
 		responseObserver.onNext(BookConferenceRoomResponse.newBuilder()
 				.setMessage("\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+						+ "\n Conference room booking confirmed!"
 						+ "\nThe details of the conference room you booked are: " + "\n Conference Room Number : "
 						+ conferenceRoomName + "\n Date : " + date + "\n Time : " + timeslot)
 				.build());
@@ -92,26 +89,24 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 			int totalOcc = 0;
 
 			public void onNext(OccupancyRequest requests) {
+				System.out.println("Receiving the number of people entering the conference room: " + requests.getNumPeople());
 				totalOcc += requests.getNumPeople();
-				
-
 			}
 
 			@Override
 			public void onError(Throwable t) {
-				// TODO Auto-generated method stub
+				System.out.println("An error has occured!");
 
 			}
 
-			// Once the complete stream is received this logic will be executed.
 			@Override
 			public void onCompleted() {
-				// Preparing and sending the reply for the client. Here, response is build and
-				// with the value (length) computed by above logic.
-				// Here, response is sent once the client is done with sending the stream.
+				// Response is sent once the client is done with sending the stream.
 				OccupancyResponse res = OccupancyResponse.newBuilder().setTotalOccupancy(totalOcc).build();
 				responseObserver.onNext(res);
 				responseObserver.onCompleted();
+				System.out.println("Server completed!");
+
 			}
 		};
 	}

@@ -1,69 +1,61 @@
 package grpc.clockInOut;
-//required grpc package for the client side
+
+//required import packages for the client side
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.Status;
-import io.grpc.StatusRuntimeException;
-import io.grpc.stub.StreamObserver;
-
-import java.lang.System.Logger;
-
-//This is to include rpc method enum message
-import grpc.clockInOut.ClockinRequest.*;
-import grpc.clockInOut.ClockinGrpc;
 import grpc.clockInOut.ClockinGrpc.ClockinBlockingStub;
-import grpc.clockInOut.ClockinGrpc.ClockinStub;
 
+public class ClockInOutClient {
 
-public class ClockInOutClient {		
-	
-	// Creating stubs for establishing the connection with server.
-		// Blocking stub
-		private static ClockinGrpc.ClockinBlockingStub blockingStub;
+	// Stubs for establishing the connection with server.
+	// Blocking stub
+	private static ClockinBlockingStub blockingStub;
+
+	public static void main(String[] args) throws Exception {
+		// Create a channel to the server from client with server name (localhost) and port (50051).
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
+
+		// stubs -- generate from proto
+		blockingStub = ClockinGrpc.newBlockingStub(channel);
+
+		// Unary RPC call
+		clockin();
+
+		// Unary RPC call
+		clockout();
+
+		// Closing the channel once message has been passed.
+		channel.shutdown();
+
+	}
+
+	// Unary RPC
+	public static void clockin() {
+
+		// Create a request message
+		ClockinRequest inReq = ClockinRequest.newBuilder().setEmployeeId(7).setDateIn("11/08/2022").setTimeIn("13:13")
+				.build();
+		// Call RPC method using blocking stub 
+		ClockinResponse inRes = blockingStub.clockIn(inReq);
+
+		// Output from the server
+		System.out.println(inRes.getMessage());
+
+	}
+
+	// Unary RPC
+	public static void clockout() {
+
+		// Create request message
+		ClockoutRequest outReq = ClockoutRequest.newBuilder().setEmployeeId(3).setDateOut("11/08/2022")
+				.setTimeOut("15:15").build();
 		
-		// The main method will have the logic for client.
-		public static void main(String[] args) throws Exception {
-		// First a channel is being created to the server from client. Here, we provide the server name (localhost) and port (50055).
-			// As it is a local demo of GRPC, we can have non-secured channel (usePlaintext).
-			ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
-			
-			//stubs -- generate from proto
-			blockingStub = ClockinGrpc.newBlockingStub(channel);
+		// Call RPC method using blocking stub 
+		ClockoutResponse outRes = blockingStub.clockOut(outReq);
 
-			// Unary RPC call
-			clockin();
-			
-			clockout();
+		// Output from the server
+		System.out.println(outRes.getMessage());
 
-			// Closing the channel once message has been passed.		
-			channel.shutdown();
-
-		}
-
-
-		//unary rpc
-		public static void clockin() {
-
-			// First creating a request message. Here, the message contains a string in setVal
-			ClockinRequest inReq = ClockinRequest.newBuilder().setEmployeeId(7).setDateIn("11/08/2022").setTimeIn("13:13").build();
-			//  Calling a remote RPC method using blocking stub defined in main method. req is the message we want to pass.
-			ClockinResponse inRes = blockingStub.clockIn(inReq);
-
-			//response contains the output from the server side. Here, we are printing the value contained by response. 
-			System.out.println(inRes.getMessage());
-			
-		}
-		
-		public static void clockout() {
-
-			// First creating a request message. Here, the message contains a string in setVal
-			ClockoutRequest outReq = ClockoutRequest.newBuilder().setEmployeeId(3).setDateOut("11/08/2022").setTimeOut("15:15").build();
-			//  Calling a remote RPC method using blocking stub defined in main method. req is the message we want to pass.
-			ClockoutResponse outRes = blockingStub.clockOut(outReq);
-
-			//response contains the output from the server side. Here, we are printing the value contained by response. 
-			System.out.println(outRes.getMessage());
-			
-		}
+	}
 
 }

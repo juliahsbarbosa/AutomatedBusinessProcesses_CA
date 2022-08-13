@@ -5,7 +5,6 @@ package grpc.clockInOut;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-
 //Required grpc packages for the server
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
