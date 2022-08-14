@@ -33,7 +33,6 @@ public class ServiceDiscovery {
 	public static ServiceInfo run(String serviceType) {
 
 		ServiceInfo sInfo = null;
-		// get an instance of jmDNS
 
 		try {
 			// Create jmDNS instance
