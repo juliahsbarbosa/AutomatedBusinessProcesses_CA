@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-
+import jmDNS.ServiceRegistration;
 //ImplBase class that was generated from the proto file
 import grpc.printer.PrinterGrpc.PrinterImplBase;
 
@@ -25,17 +25,24 @@ public class PrinterServer extends PrinterImplBase {
 
 		// Service 3 (Printer) port number definition, where server will be listening to clients
 		int port = 50053;
+		
+		//jmDNS Naming
+
+		String serviceType = "_printerGrpc._tcp.local.";
+		String serviceName = "Printer Server";
+		ServiceRegistration pReg = new ServiceRegistration();
+		pReg.run(port, serviceType, serviceName);
 
 		//Create a server instance defined with the port
 		Server server = ServerBuilder.forPort(port) 
 				.addService(pServer) 
-				.build() // Build the server
-				.start(); // Start the server
+				.build() 
+				.start();
 
-		// Show on the server console that server has started
+		// Display on the server console 
 		logger.info("Server for service 3 (Printer) started, listening on " + port);
 
-		// Server will be running until terminated
+		// Server will run until terminated
 		server.awaitTermination();
 			
 	}

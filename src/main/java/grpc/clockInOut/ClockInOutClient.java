@@ -3,19 +3,28 @@ package grpc.clockInOut;
 //required import packages for the client side
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import jmDNS.ServiceDiscovery;
+
+import javax.jmdns.ServiceInfo;
+
 import grpc.clockInOut.ClockinGrpc.ClockinBlockingStub;
 
 public class ClockInOutClient {
 
-	// Stubs for establishing the connection with server.
 	// Blocking stub
 	private static ClockinBlockingStub blockingStub;
 
 	public static void main(String[] args) throws Exception {
+		
+		//jmDNS Naming
+		ServiceInfo info;
+		String serviceType = "_clockinGrpc._tcp.local.";
+		info = ServiceDiscovery.run(serviceType);
+
 		// Create a channel to the server from client with server name (localhost) and port (50051).
 		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
 
-		// stubs -- generate from proto
+		// stubs
 		blockingStub = ClockinGrpc.newBlockingStub(channel);
 
 		// Unary RPC call
@@ -24,7 +33,7 @@ public class ClockInOutClient {
 		// Unary RPC call
 		clockout();
 
-		// Closing the channel once message has been passed.
+		// close the channel
 		channel.shutdown();
 
 	}

@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-
+import jmDNS.ServiceRegistration;
 //ImplBase class that was generated from the proto file
 import grpc.clockInOut.ClockinGrpc.ClockinImplBase;
 
@@ -26,17 +26,23 @@ public class ClockInOutServer extends ClockinImplBase {
 		// Service 1 (ClockInOut) port number definition, where server will be listening to clients
 		//Default grpc port is 50051, so this is the first port used
 		int port = 50051;
+		
+		//jmDNS Naming
+		String serviceType = "_clockinGrpc._tcp.local.";
+		String serviceName = "Clock In/Out Server";
+		ServiceRegistration cReg = new ServiceRegistration();
+		cReg.run(port, serviceType, serviceName);
 
 		//Create a server instance defined with the port
 		Server server = ServerBuilder.forPort(port) 
 				.addService(cServer) 
-				.build() // Build the server
-				.start(); // Start the server
+				.build() 
+				.start();
 
-		// Show on the server console that server has started
+		// Display on the server console
 		logger.info("Server for service 1 (ClockInOut) started, listening on " + port);
 
-		// Server will be running until externally terminated
+		// Server will run until terminated
 		server.awaitTermination();
 			
 	}

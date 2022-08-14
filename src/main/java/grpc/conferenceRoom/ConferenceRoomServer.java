@@ -2,14 +2,14 @@
 package grpc.conferenceRoom;
 
 // Required java packages 
-import java.io.IOException;
+import java.io.IOException; 
 import java.util.logging.Logger;
 
 //Required grpc packages for the server 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-
+import jmDNS.ServiceRegistration;
 //ImplBase class that was generated from the proto file.
 import grpc.conferenceRoom.ConferenceRoomGrpc.ConferenceRoomImplBase;
 
@@ -25,17 +25,23 @@ public class ConferenceRoomServer extends ConferenceRoomImplBase {
 
 		// Service 2 (ConferenceRoom) port number definition, where server will be listening to clients
 		int port = 50052;
+		
+		//jmDNS Naming
+		String serviceType = "_conferenceRoomGrpc._tcp.local.";
+		String serviceName = "Conference Room Server";
+		ServiceRegistration crReg = new ServiceRegistration();
+		crReg.run(port, serviceType, serviceName);
 
 		// Create a server instance defined with the port
 		Server server = ServerBuilder.forPort(port)
 				.addService(crServer)
-				.build() // Build the server
-				.start(); // Start the server
+				.build() 
+				.start(); 
 
-		// Show on the server console that server has started
+		// Display on the server console 
 		logger.info("Server for service 2 (Conference Room) started, listening on " + port);
 
-		// Server will be running until externally terminated
+		// Server will be run until terminated
 		server.awaitTermination();
 
 	}

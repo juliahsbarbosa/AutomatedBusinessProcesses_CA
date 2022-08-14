@@ -1,9 +1,12 @@
 package grpc.printer;
 
+import javax.jmdns.ServiceInfo;
+
 //required grpc package for the client side
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import jmDNS.ServiceDiscovery;
 
 
 public class PrinterClient {
@@ -14,6 +17,11 @@ public class PrinterClient {
 
 	// The main method will have the logic for client.
 	public static void main(String[] args) throws Exception {
+		//jmDNS Naming
+		ServiceInfo info;
+		String serviceType = "_printerGrpc._tcp.local.";
+		info = ServiceDiscovery.run(serviceType);
+		
 		// Create a channel to the server from client with server name (localhost) and port (50053).
 		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50053).usePlaintext().build();
 
@@ -63,8 +71,8 @@ public class PrinterClient {
 		requestObserver.onNext(PrintAllDocumentsRequest.newBuilder().setDocumentName("Contract").build());
 		requestObserver.onNext(PrintAllDocumentsRequest.newBuilder().setDocumentName("Letter").build());
 
-			// Sleep for a while before sending the next one
-			Thread.sleep(1000);
+			// Sleep for 2 seconds
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
